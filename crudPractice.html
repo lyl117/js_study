@@ -174,4 +174,107 @@ const membersDelete = function(index) {
   members.splice(index,1);
   return members;
 };
+
+// object crud
+// 오브젝트 create
+Object1.key1 = 1;
+Object1.key2 = '2';
+Object1['key3'] = '삼';
+// 오브젝트 read
+const o1 = object1.key1;
+const o2 = object['key2'];
+const o3 = object1.key3;
+// 오브젝트 update
+object1['key1'] = [];
+object1.key2 = function() {};
+object.key3 = {};
+// 오브젝트 delete
+delete object1.key1;
+delete object1.key2;
+delete object1['key3'];
+
+// object crud.1
+// 오브젝트 create
+object1.key = 1;
+object.key2 = '2';
+object['key3'] = '삼';
+//read
+const o1 = object1.key1;
+const o2 = object['key2'];
+const o3 = object.key3;
+// update
+object1['key1'] = [];
+object.key2 = function() {};
+object.key3 = {};
+//delete
+delete object1.key1;
+delete object1.key2;
+delete object1['key3'];
+
+// object crud.2
+// create 
+object.key = 1;
+object.key2 = '2'
+
+
+// crud = 배열, 함수, 오브젝트 
+// 배열 crud 
+// create
+array1.push(1);
+array1.push('2');
+array1.push('삼');
+//read
+const a1 = array1[0];
+const a2 = array1[1];
+const a3 = array1[2];
+// update 
+array1[0] = undefined;
+array1[1] = false;
+array1[2] = [1,2,3];
+// delete
+array.splice(0,1);
+array.splice(1,1);
+array.splice(2.1);
+
+// 함수 crud
+// create 
+const members = [];
+const membersCreate = function(member){
+  members.push(member);
+  return members;
+};
+  // read
+const membersRead = function() {
+  return members;
+};
+// update
+const membersUpdate = function (index, member){
+  member[index] =member;
+  return members;
+};
+// delete 
+const membersDelete = function(index){
+  members.splice (index, 1);
+  return members;
+};
+
+// 오브젝트 crud
+// create
+object1.key1 =1;
+object1.key2 = '2';
+object1['key3'] = '삼';
+// read
+const o1 = object.key1;
+const o2 = object['key2'];
+const o3 = object.key3;
+// update 
+object1['key'] = [];
+object1.key2 = function() {};
+object.key3 = {};
+// delete 
+delete object1.key1;
+delete object1.key2;
+delete object1['key3'];
+
+
 </script>
