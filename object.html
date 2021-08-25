@@ -33,13 +33,22 @@ const object2 = {
 // delete object1.key2;
 // delete object1['key3'];
 
-for (const c1 in object2) {
-  const value1 = object2[c1];
-  console.log(c1);
-  console.log(value1);
-  console.log(object2.c1);
+// for (const c1 in object2) {
+//   const value1 = object2[c1];
+//   console.log(c1);
+//   console.log(value1);
+//   console.log(object2.c1);
+// }
+// const array2 = Object.keys(object2);
+// console.log(array2.length);
+
+try {
+  t1;
+  console.log('진행 가능1?');
+} catch(error) {
+  console.warn(error);
+  console.error(error);
 }
-const array2 = Object.keys(object2);
-console.log(array2.length);
+console.log('진행 가능2?');
 
 </script>
