@@ -335,4 +335,194 @@ object1.key3 = {};
 delete object1.key1;
 delete object1.key2;
 delete object1['key3'];
+
+// 배열 crud 
+// create 
+array1.push(1);
+array1.push('2');
+array1.push('삼');
+// read 
+const a1 = array1[0];
+const a2 = array1[1];
+const a3 = array1[2];
+// update 
+array1[0] = undefined;
+array1[1] = false;
+array1[2] = [1,2,3];
+//delete 
+array1.splice(0,1);
+array1.splice(1,1);
+array1.splice(2,1);
+
+// 함수 crud 
+// create 
+const memebers = [];
+const membersCreate = function(memeber) {
+  members.push(member);
+  return members;
+};
+// read
+const memberRead = function(){
+  return members;
+};
+// delete 
+const membersDelete = function(index) {
+  members.splice(index,1);
+  return members;
+};
+// update 
+const membersUpdate =  function(index,member){
+  members[index] = member;
+  return membersl
+};
+// 오브젝트 crud
+// create 
+object1.key1 = 1;
+object1.key2 ='2';
+object1['key3']= '삼';
+// read
+const o1 = object1.key1;
+const o2 = object1['key2'];
+const o3 = object1.key3
+// update 
+object['key1'] =[];
+object.key2 = function() {};
+object.key3 = {};
+// delete 
+delete object1.key1;
+delete object2.key2;
+delete object3['key3']
+
+// 오브젝트 crud 회원 실습용 
+// create 
+membersCreate({
+  name: '홍길동',
+  age: 20 
+});
+// read 
+membersRead();
+// update 
+membersUpdate(0,{
+  name: '김유신',
+  age: 30 
+});
+// delete 
+membersDelete(0);
+
+// sessionStorage crud
+// create 
+sessionStorage.setItem('ss1',1);
+sessionStorage.setItem('ss2','이');
+sessionStorage.setItem('ss3',undefined);
+// read 
+const ss1 = sessionStorage.getItem('ss1');
+const ss2 = sessionStorage.getItem('ss2');
+const ss3 = sessionStorage.getItem('ss3');
+// update 
+sessionStorage.setItem('ss1', [1,2,3]);
+sessionStorage.setItem('ss2',{
+  key1: 'value'
+});
+// delete 
+ssesionStorage.removeItem('ss1');
+sessionStarage.clear();
+
+// array crud 
+// create 
+array1.push(1);
+array2.push('2');
+array3.push('삼');
+// read 
+const a1 = array1[0];
+const a2 = array1[1];
+const a3 = array1 [2];
+// update 
+array1[0] = undefined;
+array1[1] = false;
+array1[2] = [1,2,3];
+// delete 
+array1.splice (0,1);
+array1.splice (1,1);
+array1.splice (2,1);
+
+// create -> push
+// read  -> 그대로 읽기 
+// update -> 새로운 내용 
+// delete -> splice 
+
+// function crud 
+// create 
+const memebrs =[];
+const memebersCreate = function(member) {
+  members.push(member);
+  return members;
+};
+// read 
+const membersRead = function() {
+  return members;
+};
+// update 
+const membersUpdate = function (index,member){
+  members[index] = member;
+  return members;
+};
+// delete 
+const membersDelete = function(index){
+  members.splice(index,1);
+  return members;
+};
+// object crud 
+// create 
+object1.key1 = 1;
+object1.key2 = '2';
+object1['key3']='삼';
+// read
+const o1 = object1.key1;
+const o2 = object2['key2'];
+const o3 = object3.key3;
+// update 
+object1['key1'] =[];
+object1.key2 = function() {};
+object1.key3 = {};
+// delete 
+delete object1.key1;
+delete object1.key2;
+delete object1['key3']
+
+// 오브젝트 실습 crud 
+// create 
+membersCreate({
+  name: ' 홍길동 ',
+  age: 20 
+});
+// read
+membersRead();
+// update 
+membersUpdate (0,{
+  name: '김유신',
+  age: 30 
+});
+// delete 
+membersDelete(0);
+
+// sessionStorage crud 
+//create 
+sessionStorage.setItem('ss1',1);
+sessionStorage.setItem('ss2','이');
+sessionStorage.setItem('ss3', undefined);
+// read 
+const ss1 = sessionStorage.getItem('ss2');
+const ss2 = sessionStorage.getItem('ss2');
+const ss3 = sessionStorage.getItem('ss3');
+// update 
+
+sessionStorage.setItem('ss1', [1,2,3]);
+sessionStorage.setItem('ss2', {
+  key1: 'value1'
+});
+// delete 
+sessionStorage.removeItem('ss1');
+sessionStorage.clear();
+
+
 </script>
