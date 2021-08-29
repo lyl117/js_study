@@ -1,80 +1,145 @@
 <script>
+// 1and Week
 // 1번 문제
-const x = 4;
-const xCost = 100000;
-const count = 240000;
-const count1 = x * xCost - count;
-const div = count1 / x;
-console.log(div);
-</script>
+// const x = 4;
+// const xCost = 100000;
+// const count = 240000;
+// const count1 = x * xCost - count;
+// const div = count1 / x;
+// console.log(div);
 
-<script>
+
+
   // 2번 문제
-  const y = 1000000000;
-  const r = 1.2;
-  const i = y * r / 100;
-  const tex = 0.846;
-  const it = i * tex;
-  const t = y + it;
-  console.log(t);
+  // const y = 1000000000;
+  // const r = 1.2;
+  // const i = y * r / 100;
+  // const tex = 0.846;
+  // const it = i * tex;
+  // const t = y + it;
+  // console.log(t);
 
-</script>
 
-<script>
   // 3번 문제
-  const s = 5000000;
-  const c = 3.3;
-  const t = s * c / 100;
-  const r = s - t;
-  const g = 100000;
-  const f = 12
-  const z = (r - g) * f;
-  console.log (z);
-</script>
+  // const s = 5000000;
+  // const c = 3.3;
+  // const t = s * c / 100;
+  // const r = s - t;
+  // const g = 100000;
+  // const f = 12
+  // const z = (r - g) * f;
+  // console.log (z);
 
-<script>
   // 4번 문제 
-  const stringFrist = '올해 총 카드 사용 금액은';
-  const stringLast = '입니다.';
-  let stringChange = '오백만원'
-  let a1 = '천만원'
-  let a2 = '이천만원'
-  console.log(stringFrist + stringChange + stringLast);
-  console.log(stringFrist + a1 + stringLast);
-  console.log(stringFrist + a2 + stringLast);
-</script>
+  // const stringFrist = '올해 총 카드 사용 금액은';
+  // const stringLast = '입니다.';
+  // let stringChange = '오백만원'
+  // let a1 = '천만원'
+  // let a2 = '이천만원'
+  // console.log(stringFrist + stringChange + stringLast);
+  // console.log(stringFrist + a1 + stringLast);
+  // console.log(stringFrist + a2 + stringLast);
 
-<script>
   // 5번 문제
-  const string1 = '곱하기';
-  const string2 = '는';
-  const string3 = '이다.';
-  const ten = 10;
-  const four = 5;
-  console.log(ten + string1 + four + string2 + (ten*four)+ string3);
-</script>
+  // const string1 = '곱하기';
+  // const string2 = '는';
+  // const string3 = '이다.';
+  // const ten = 10;
+  // const four = 5;
+  // console.log(ten + string1 + four + string2 + (ten*four)+ string3);
 
-<script>
   // 6번 문제 
-  const string4 = '"';
-  const string5 = '는';
-  const string6 = '보다 같거나 크다';
-  const string7 = '라는 명제는';
-  const string8 = '이다';
-  const nine = 9;
-  const three = 3;
-  console.log (string4 + nine + string5 + three + string6 +string4 +string7 + (nine > three ) + string8);
-</script>
+  // const string4 = '"';
+  // const string5 = '는';
+  // const string6 = '보다 같거나 크다';
+  // const string7 = '라는 명제는';
+  // const string8 = '이다';
+  // const nine = 9;
+  // const three = 3;
+  // console.log (string4 + nine + string5 + three + string6 +string4 +string7 + (nine > three ) + string8);
 
-<script>
   // 7번 문제
-  const string9 = '" 프리미엄 회원이거나 광고를 봤으면';
-  const string10 = '이지만, 프리미엄 회원이 아니고 광고를 보지 않았다면';
-  const string11 = '이다" 라는 명제는 거짓이다.';
-  const isPremiumMember = false;
-  const isWatchedAdd = true;
-  console.log(
-    string9 + (isPremiumMember || isWatchedAdd) + string10, 
-    (isPremiumMember && isWatchedAdd) + string11
-  );
+  // const string9 = '" 프리미엄 회원이거나 광고를 봤으면';
+  // const string10 = '이지만, 프리미엄 회원이 아니고 광고를 보지 않았다면';
+  // const string11 = '이다" 라는 명제는 거짓이다.';
+  // const isPremiumMember = false;
+  // const isWatchedAdd = true;
+  // console.log(
+  //   string9 + (isPremiumMember || isWatchedAdd) + string10, 
+  //   (isPremiumMember && isWatchedAdd) + string11
+  // );
+
+  // 2and week 
+  //1번째 문제
+  const p = [100000, 100000, 100000, 100000];
+  // const cost = 100000;
+  const cost1 = 240000;
+  // if(p == 4 || cost == 100000) {
+  //   console.log(p*cost);
+  // };
+  // if (cost == 100000) {
+  //   console.log((p*cost)-cost1)
+  // };
+  // if (cost1==240000){
+  //   console.log(((p*cost)-cost1)/p)
+  // };
+  let total = 0;
+  for (let index = 0; index < p.length; index++) {
+    total += p[index];
+  }
+  const div = (total - cost1) / p.length
+  
+// 2번째 문제
+const a = 5000000;
+const b = 3.3;
+const c = 100000;
+const d = 12;
+if (a == 5000000) {
+  console.log(a*b/100)
+};
+if (b == 3.3) {
+  const t = (a-(a*b/100))
+  console.log ((t - c)*d) 
+};
+// 3번째 문제
+const n = [1,2,3,4,5,6,7,8,9,10,11,12]
+const n1 = 5000000;
+const n2 = 0;
+const n3 = 5500000;
+const n4 = 2500000;
+const n5 = 4000000;
+const n6 = 0;
+const n7 = 6000000;
+const n8 = 7000000;
+const n9 = 0;
+const n10 = 1500000;
+const n11 = 5200000;
+const n12 = 0;
+
+if( n >= 5000000){
+  console.log('{n}월은 수고 하셨습니다.');
+} else if (n == 0) {
+  console.log('{n}월은 쉬었습니다.');
+} else if (n <= 5000000) {
+  console.log ('{n}월은 조금 더 노력하세요.');
+}
+// 4번째 문제 
+// for (let n = 0; n < 7000000; n++) {
+//   console.log (n1)
+// }
+// 5번째 문제 
+const stringFirst = '올해 상반기 카드 사용 금액은';
+const stringLast = '사용 하였습니다.';
+const cardPays = [120, 40, 110, 140, 70, 60];
+  for(let i = 1; i >=6; i++) {
+    console.log(i +'월');
+  };
+    for(let a= 1; a>=6; a++) {
+    console.log(i +'월' + cardPay)
+  };
+  if ( a === 6){
+    console.log (stringLast);
+  };
+
+
 </script>

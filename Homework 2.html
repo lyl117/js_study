@@ -1,0 +1,26 @@
+<script>
+// 1번 문제
+// const pays = [500, 500, 500, 500,500,500,500,500,500,500,500,500];
+// let total = 0;
+// for(let index = 0; index <pays.length; index++){
+//   const tax = (pays[index] *3.3/100)
+//   total += pays[index] - tax -10;
+// }
+// console.log(total);
+
+// 2번 문제
+const pays = [500, 0, 550, 250,400,0,600,700,0,150,520,0];
+let total = 0;
+for(let index = 0; index <pays.length; index++){
+  const month = index + 1
+  if (pays[index] >= 500) {
+    console.log (month + '월은 수고 하셨습니다.')
+  } else if (pays[index] === 0) {
+    console.log(month + '월은 쉬었습니다.')
+  }else if (pays[index] < 500) {
+    console.log (month +'월은 조금 더 노력하세요.')
+  }
+  
+}
+
+</script>
