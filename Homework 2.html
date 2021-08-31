@@ -1,5 +1,16 @@
 <script>
-// 1번 문제
+// // 1번 문제
+// const pay =[100000,100000,100000,100000];
+// const cost = 240000;
+// const p = 4;
+// let total1 =0;
+// let total2 = 0;
+// for(let index =0; index < pay.length; index++){
+//   total1 = pay[index] + total1
+//   total2 += pay[index]
+// }
+
+// 2번 문제 
 // const pays = [500, 500, 500, 500,500,500,500,500,500,500,500,500];
 // let total = 0;
 // for(let index = 0; index <pays.length; index++){
@@ -8,19 +19,57 @@
 // }
 // console.log(total);
 
-// 2번 문제
-const pays = [500, 0, 550, 250,400,0,600,700,0,150,520,0];
-let total = 0;
-for(let index = 0; index <pays.length; index++){
-  const month = index + 1
-  if (pays[index] >= 500) {
-    console.log (month + '월은 수고 하셨습니다.')
-  } else if (pays[index] === 0) {
-    console.log(month + '월은 쉬었습니다.')
-  }else if (pays[index] < 500) {
-    console.log (month +'월은 조금 더 노력하세요.')
-  }
+// // 3번 문제
+// const pays = [500, 0, 550, 250,400,0,600,700,0,150,520,0];
+// let total = 0;
+// for(let index = 0; index <pays.length; index++){
+//   const month = index + 1
+//   if (pays[index] >= 500) {
+//     console.log (month + '월은 수고 하셨습니다.')
+//   } else if (pays[index] === 0) {
+//     console.log(month + '월은 쉬었습니다.')
+//   }else if (pays[index] < 500) {
+//     console.log (month +'월은 조금 더 노력하세요.')
+//   }
   
-}
+// }
 
+// // 4번문제 
+// const pay2 = [500, 0, 550, 250,400,0,600,700,0,150,520,0];
+// let total = 0;
+// for(let index = 0; index<pay2.length; index++){
+//   total = pay2[index] + total;
+// }
+// const avg = total / pay2.length;
+// console.log(total, avg);
+
+// // 5번 문제 
+// const stringFirst = '올해 상반기 카드 사용 금액은';
+// const stringLast = '사용 하였습니다.';
+// const cardPays = [120, 40, 110, 140, 70, 60];
+// console.log ('올해 상반기 카드 사용 금액은');
+// for(let index = 0; index <cardPays.length; index++){
+//   const month1 = index + 1; 
+//   console.log(month1+ '월'+ cardPays[index]+ '만원' );
+// }
+// console.log('사용 하였습니다.');
+// 차례대로 나오는 것은 알겠는데 쭉 연이서 나오게 못하겠음
+
+// 6번 문제 
+const stringFirst1 = '올해 상반기 카드 사용 금액은';
+const stringLast2 = '사용 하였습니다.';
+const cardPays1 = [120, 40, 110, 140, 70, 60];
+const d = 0.95;
+console.log ('올해 상반기 카드 사용 금액은');
+for(let index = 0; index <cardPays1.length; index++){
+  const month2 = index + 1; 
+  // const pays1 = cardPays1[1][3][5] * d;
+  if (month2 % 2 === 1){
+    const discount = cardPays1[index] *d;
+    console.log(month2+ '월 '+ discount + '만원');
+  }else{
+    console.log(month2+ '월 '+ cardPays1[index]+ '만원' );
+  } 
+}
+console.log('사용 하였습니다.');
 </script>
