@@ -1,0 +1,178 @@
+<script>
+
+  // 1번 문제 
+ const pay =[100000, 100000, 100000, 100000];
+// 10,000원씩 4번 pay에 넣는다.
+const cost = 240000;
+// 총 가격은 240,000원이다.
+// const p = 4;
+let total1 =0;
+let total2 =0;
+// 일단 total1과 total2를 선언해준다.
+for(let index =0; index < pay.length; index++){
+  // index 값이 0 부터 for문이 돌게 된다.
+  // 현재는 0원이다. 그리고 인덱스 0번쨰에 10만원을 넣으려하는 단계에 있다고 보면 된다.
+  total1 = pay[index] + total1
+  // index 0번째 있는 자리에 있는 값을 가져와 (10,000원) total1과(0원) 더해서 총 total1에 넘어가게 된다.
+  // total1에 10만원이 들어간다. 그리고 쌓이는게 아니라 원래 있던 값이 지워지고 새로운 값이 들어가게 된다.
+  total2 += pay[index] 
+  // total1을 쉽게 풀어낸 것이 total2이다, +=을 사용하여 쉽게 풀어 냈다고 보면 됨.
+}
+
+// 1번 문제 
+ const pay =[100000, 100000, 100000, 100000];
+ const cost = 2400000;
+ let total1= 0;
+ let toatl2 = 0;
+ for(let index =0; index<pay.length; index++){
+   toatl1 = pay[index] + total1
+   total2 += pay[indx]
+ }
+
+ 
+
+// 2번 문제 
+const pays1 = [500, 500, 500, 500,500,500,500,500,500,500,500,500];
+// 월마다 번 돈을 배열에 넣는다.
+let total = 0;
+// total을 선언해준다.
+for(let index = 0; index <pays1.length; index++){
+  const tax = (pays1[index] *3.3/100)
+  // 3.3 원천징수를 계산해준다.
+  total += pays1[index] - tax -10;
+  // 먼저 번돈에 tax을 빼주고, 10만원을 빼준다. 그리고 total에 넘겨준다.
+}
+console.log(total);
+// console.log는 console창에서 값을 보고 싶을 때 (??), 완료 부분에 빼면 좋다. 
+
+// 2번 문제 
+const pay1 =[500, 500, 500, 500,500,500,500,500,500,500,500,500];
+let total =0;
+for(index =0; index <pay1.length; index++){
+  const tax =(pays1[index]*3.3/100)
+  total += pays1[index] - tax -10;
+}
+console.log(total);
+
+// 3번 문제
+const pays = [500, 0, 550, 250,400,0,600,700,0,150,520,0];
+// 내가 번돈을 선언해준다.
+let total = 0;
+// total 선언
+for(let index = 0; index <pays.length; index++){
+  // 0번째 값이 for문을 돌면서 if문에 들어갈 준비를 하게 된다.
+  const month = index + 1
+  // '월'을 만들어 준다.
+  if (pays[index] >= 500) {
+    // 내가 번돈이 500 이상이라면
+    console.log (month + '월은 수고 하셨습니다.')
+  } else if (pays[index] === 0) {
+    // 내가 번돈이 0원이라면
+    console.log(month + '월은 쉬었습니다.')
+  }else if (pays[index] < 500) {
+    // 내가 번돈이 500만원 미만이라면 
+    console.log (month +'월은 조금 더 노력하세요.')
+  }
+
+  // 3번 문제 
+  const pays =[500, 0, 550, 250,400,0,600,700,0,150,520,0];
+  let total =0;
+  for (let index =0; index<pays.length; index++){
+    const month = index +1 
+    if (pays[index]>=500) {
+      console.log(month +'월은 수고 하셨습니다.')
+    } else if (pays[index]===0) {
+      console.log(month + '월은 쉬었습니다.')
+    } else if (pays[index] < 500) {
+      console.log(month + '월은 조금 더 노력하세요.')
+    }
+  }
+  // 4번문제 
+const pay2 = [500, 0, 550, 250,400,0,600,700,0,150,520,0];
+// pay2에 번돈을 배열에 나열한다.
+let total = 0;
+// total을 선언한다.
+for(let index = 0; index<pay2.length; index++){
+  total = pay2[index] + total;
+  // 개발자의 연봉 구하기 : 번돈을 차례차례 더해준다. * 1번과 비슷하다.
+}
+const avg = total / pay2.length;
+// 평균을 구해준다.
+console.log(total, avg);
+// 최종값을 출력한다. * 두개 동시에 출력가능 
+
+// 4번 문제 
+const pay2 = [500, 0, 550, 250,400,0,600,700,0,150,520,0];
+let total =0;
+for (let index =0; index < pay2.length; index++) {
+  total = pay2[index] + total;
+}
+const avg = total / pay2.lengthl
+console.log (total, avg );
+
+// 5번 문제 
+const stringFirst = '올해 상반기 카드 사용 금액은';
+const stringLast = '사용 하였습니다.';
+const cardPays = [120, 40, 110, 140, 70, 60];
+console.log ('올해 상반기 카드 사용 금액은');
+// 제일 먼저 나와야 할 문구를 선언해준다.
+for(let index = 0; index <cardPays.length; index++){
+  const month1 = index + 1; 
+  // '월'을 출력할 수 있게 만든다.
+  console.log(month1+ '월'+ cardPays[index]+ '만원' )
+}
+console.log('사용 하였습니다.');
+// 마지막에 나와야할 출력문은 for 문 바깥에서 출력해주면 된다.
+
+// 5번문제 
+const stringFirst = ' 올해 상반기 카드 사용 금액은 ';
+const stringLast = ' 사용하였습니다.';
+const cardPays =[120, 40, 110, 140, 70, 60];
+console.log(' 올해 상반기 카드 사용 금액은 ');
+for (let index = 0; index< cardPays[index]+ '만원'){
+  console.log(month1 + '월' + cardPays[index] + '만원')
+}
+console.log('사용하였습니다.');
+
+// 6번 문제 
+const stringFirst1 = '올해 상반기 카드 사용 금액은';
+const stringLast2 = '사용 하였습니다.';
+const cardPays1 = [120, 40, 110, 140, 70, 60];
+const d = 0.95;
+console.log ('올해 상반기 카드 사용 금액은');
+for(let index = 0; index <cardPays1.length; index++){
+  // 0번째 값을 for문을 돌면서 0번째에 값을 넣을 준비를 한다.
+  const month2 = index + 1; 
+  // const pays1 = cardPays1[1][3][5] * d;
+  // 5% 할인 한 값을 출력하기 위해 if문 사용한다.
+  if (month2 % 2 === 1){
+    // month2 값을 2로 나눠서 1이 나온다면 
+    const discount = cardPays1[index] *d;
+    // 5% 할인을 해준다.
+    console.log(month2+ '월 '+ discount + '만원');
+    // 결국 2월달은 38만원이 출력이 된다.
+  }else{
+    console.log(month2+ '월 '+ cardPays1[index]+ '만원' );
+    // 2로 나눠서 1이 나오지 않는다면 그대로 출력할 수 있다.
+  } 
+}
+console.log('사용 하였습니다.');
+// 마지막 문구 출력한다.
+
+// 6번 문제 
+const stringFirst = '올해 상반기 카드 사용 금액은';
+const stringLast = '사용하였습니다.'
+const cardPays1 = [ 120, 40, 110, 140, 70, 60];
+const d = 0.95;
+console.log ('올해 상반기 카드 사용 금액은 ');
+for(let index = 0; index < cardPays1.length; index++){
+  const month2 = index +1;
+  if ( month2 % 2 === 1) {
+    const discount = cardPays1[index] *d;
+    console.log(month2 + '월' + discount + '만원');
+  } else {
+    console.log(month2 +'월' + cardPays1[index] + '만원');
+  }
+}
+console.log('사용하였습니다.');
+</script>
