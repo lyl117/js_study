@@ -1,0 +1,72 @@
+<script>
+  //1번
+// const question1 = function(salary) {
+//   const tax = (salary *3.3/100)
+//   const realSalary = salary - tax - 10;
+//   return (realSalary * 12)
+// };
+
+// const devA = question1(500);
+// const devB = question1(600);
+
+//2번
+// const question2 = function(x) {
+//   x[x.length-1] = x[x.length-1]+1;
+//   console.log(x)
+// };
+// const a = [1, 2, 3];
+// const b = ['a', 'b', 'c', 'd'];
+// const c = 'abcde';
+// question2(a);
+// question2(b);
+// question2(c);
+// question2(a);
+// question2(b);
+// question2(c);
+
+// 3번 
+// let total1 = 0;
+// for (let index = 0; index < array1.length; index++) {
+//   total1 += array1[index];
+// }
+// console.log(array1[0] + '부터 ' + array1[array1.length - 1] + '까지의 합은 ' + total1 + '이고, 평균은 ' + (total1 / array1.length) + '이다.');
+
+// total1 = 0;
+// for (let index = 0; index < array11.length; index++) {
+//   total1 += array11[index];
+// }
+// console.log(array11[0] + '부터 ' + array11[array11.length - 1] + '까지의 합은 ' + total1 + '이고, 평균은 ' + (total1 / array11.length) + '이다.');
+
+// total1 = 0;
+// for (let index = 0; index < array21.length; index++) {
+//   total1 += array21[index];
+// }
+// console.log(array21[0] + '부터 ' + array21[array21.length - 1] + '까지의 합은 ' + total1 + '이고, 평균은 ' + (total1 / array21.length) + '이다.');
+
+// const question3 = function(x) {
+//   let total1 = 0;
+//   for (let index = 0; index < x.length; index++) {
+//     total1 += x[index];
+//   }
+//   console.log(x[0] + '부터 ' + x[x.length - 1] + '까지의 합은 ' + total1 + '이고, 평균은 ' + (total1 / x.length) + '이다.');
+
+// }
+
+// const array1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// const array11 = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+// const array21 = [21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
+// question3(array1)
+// question3(array11)
+// question3(array21)
+
+// 4번 문제 
+const afterFunc = function() {
+  console.log('콜백 함수 호출');
+};
+const connectFunc = function(callback) {
+  console.log('서버 연결');
+  callback();
+  console.log('연결 종료');
+};
+connectFunc(afterFunc);
+</script>

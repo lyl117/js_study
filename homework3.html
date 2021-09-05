@@ -1,17 +1,20 @@
 <script>
   // 1번 문제 
-  // const parameter1 = 500 * 12;
-  // const parameter2 = parameter1 *3.3 -100;
-  // let pays1 = 0;
-  // let pays2 = 0;
-  // const a = function(parameter1, parameter2){ 
-  //     const pays1 = parameter2 -10;
-  //     parameter1.push(600);
-  //     const pays2 = parameter2 -15;
-  //   return pays1; 
-  //   return pays2;
-  // }
-  // const returned1 = a('argument1', 'argument2');
+  const a = 500;
+  const parameter1 = a*12;
+  const parameter2 = parameter1 * 3.3 - 100;
+  let pays1 = 0;
+  let pays2 = 0;
+  const pay1 = function(parameter1, parameter2){ 
+      const pays1 = parameter2 -10;
+      return pays1; 
+      const membersCreate = function(a){
+      a.push(600);
+      const pays2 = parameter2 -15;
+      return pays2;
+      };
+  }
+  const returned1 = pay1('argument1', 'argument2');
   
   // 2번 문제 
 const a1 = [1, 2, 3];
@@ -37,30 +40,30 @@ const array1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const array11 = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 const array21 = [21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
 
-let total1=0;
-const total1 = function(array1){
-total1 += array[index];
-}
-console.log(array1[0] + '부터 ' + array1[array1.length - 1] + '까지의 합은 ' + total1 + '이고, 평균은 ' + (total1 / array1.length) + '이다.');
+// let total1=0;
+// const total1 = function(array1){
+// total1 += array[index];
+// }
+// console.log(array1[0] + '부터 ' + array1[array1.length - 1] + '까지의 합은 ' + total1 + '이고, 평균은 ' + (total1 / array1.length) + '이다.');
 
-total1 = 0;
-const total1 = function(array11) {
-  total1 += array11[index];
-}
-console.log(array11[0] + '부터 ' + array11[array11.length - 1] + '까지의 합은 ' + total1 + '이고, 평균은 ' + (total1 / array11.length) + '이다.');
+// total1 = 0;
+// const total1 = function(array11) {
+//   total1 += array11[index];
+// }
+// console.log(array11[0] + '부터 ' + array11[array11.length - 1] + '까지의 합은 ' + total1 + '이고, 평균은 ' + (total1 / array11.length) + '이다.');
 
-total1 = 0;
-const total1 = function(array21){
-  total1 += array21[index];
-}
-console.log(array21[0] + '부터 ' + array21[array21.length - 1] + '까지의 합은 ' + total1 + '이고, 평균은 ' + (total1 / array21.length) + '이다.');
+// total1 = 0;
+// const total1 = function(array21){
+//   total1 += array21[index];
+// }
+// console.log(array21[0] + '부터 ' + array21[array21.length - 1] + '까지의 합은 ' + total1 + '이고, 평균은 ' + (total1 / array21.length) + '이다.');
 
 
 // 4번 문제 
 const afterFunc = function() {
   console.log('콜백 함수 호출');
 };
-const connectFunc = function(callback) {
+const connectFunc = function() {
   console.log('서버 연결');
   console.log('연결 종료');
 };
