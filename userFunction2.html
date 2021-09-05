@@ -1,0 +1,24 @@
+<script>
+  const users = [];
+  const usersCreate = function(user) {
+    users.push(user);
+    return users;
+  };
+  const usersRead = function() {
+    return users;
+  };
+  const usersDelete = function(index){
+    users.splice(index, 1);
+    return users;
+  };
+  const usersUpdate = function(index, user){
+    users[index] = user;
+    return users;
+  };
+  
+  // command + option + F를 누르면 창이 하나가 뜬다.
+  // Aa는 user라는 문자만 잡는것이다.
+  // Aa의 옆에 있는 것은 membersCreate처럼 붙어있는 문자까지 잡아주는 것이다.
+  // 아래 cb는 하나씩 바꾸는것 
+  // 그옆에 있는 것은 한번에 다 바꾸는 것 
+</script>
