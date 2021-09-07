@@ -1,0 +1,388 @@
+<script>
+  // 변수 , 상수, 연산자
+  // 1번 문제 
+ const pay =[100000, 100000, 100000, 100000];
+ const cost = 240000;
+ let total1= 0;
+ // = total1 += pay[index]
+ for(let index =0; index<pay.length; index++){
+   total1 = pay[index] + total1
+ }
+ let cost2 = (total1 - cost) /pay.length;
+ console.log(cost2);
+
+//  // 1번 문제 -2
+//  const pay = [100000, 100000, 100000, 100000];
+//  const cost = 240000;
+//  let total1 =0;
+//  let total2 =0;
+//  for(let index =0; index<pay.length; index++){
+//    total1 = pay[index] + total1
+//    total2 += pay[index]
+// //  }
+// let cost2 = (total1 - cost) /pay.length;
+//  console.log(cost2);
+
+// // 1번 문제 -3
+// const pay = [100000, 100000, 100000, 100000];
+// const cost = 240000;
+// let toatl1 = 0;
+// let total2 = 0;
+// for(let index =0; index<pay.length; index++){
+//   total1 = pay[index] + total1
+//   total2 += pay[index]
+// }
+// let cost2 = (total1 - cost) /pay.length;
+//  console.log(cost2);
+
+// 2번 
+const cost1 = 100000000;
+const a1 = 1.2
+let total3 =0;
+const tax = 0.846;
+const total33 = cost1 * a1 /100; 
+const total3 = total33 * tax
+const t = cost1 + total33
+console.log(t);
+
+// const y = 1000000000;
+  // const r = 1.2;
+  // const i = y * r / 100;
+  // const tex = 0.846;
+  // const it = i * tex;
+  // const t = y + it;
+  // console.log(t);
+
+// 3번
+const a = 5000000;
+const b = 3.3;
+const c = 100000;
+const d = 12;
+if (a == 5000000) {
+  console.log(a*b/100)
+};
+if (b == 3.3) {
+  const t = (a-(a*b/100))
+  console.log ((t - c)*d) 
+};
+console.log(total);
+
+// 3번-1 
+const a = 5000000;
+const b = 3.3;
+const c = 1000000;
+const d = 12;
+if (a == 5000000) {
+  console.log(a*b/100)
+};
+if (b== 3.3) {
+  const t =(a-(a*b/100))
+  console.log((t-c)*d)
+};
+console.log(total);
+
+// 4번 
+const stringFirst = '올해 총 카드 사용 금액은 ';
+const stringLast = ' 입니다.';
+let stringChange = '오백만원'
+let a1 = '천만원'
+let a2 = '이천만원'
+  console.log(stringFrist + stringChange + stringLast);
+  console.log(stringFrist + a1 + stringLast);
+  console.log(stringFrist + a2 + stringLast);
+
+
+//5번 문제
+const string1 = '곱하기';
+const string2 = '는';
+const string3 = '이다.';
+const ten = 10;
+const four = 5;
+console.log(ten + string1 + four + string2 + (ten*four)+ string3); 
+
+// 6번문제 
+const string4 = '"';
+  const string5 = '는';
+  const string6 = '보다 같거나 크다';
+  const string7 = '라는 명제는';
+  const string8 = '이다';
+  const nine = 9;
+  const three = 3;
+  console.log (string4 + nine + string5 + three + string6 +string4 +string7 + (nine > three ) + string8);
+
+  // 7번문제 
+const string9 = '" 프리미엄 회원이거나 광고를 봤으면';
+  const string10 = '이지만, 프리미엄 회원이 아니고 광고를 보지 않았다면';
+  const string11 = '이다" 라는 명제는 거짓이다.';
+  const isPremiumMember = false;
+  const isWatchedAdd = true;
+  console.log(
+    string9 + (isPremiumMember || isWatchedAdd) + string10, 
+    (isPremiumMember && isWatchedAdd) + string11
+  );
+
+
+// if문, 배열, for문
+// 1번 
+const pays1 = [100000, 100000,100000,100000]
+const e = 240000;
+let total4 = 0;
+for(let index =0; index<pays1.length; index++){
+  total4 = pays1.length + total4
+}
+let total5 = total4 / pays1.length
+console.log(total5);
+
+// 2번 문제 
+const pays = [500, 500, 500, 500,500,500,500,500,500,500,500,500];
+let total = 0;
+for(let index = 0; index <pays.length; index++){
+  const tax = (pays[index] *3.3/100)
+  total += pays[index] - tax -10;
+}
+console.log(total);
+
+// 2번 문제 -2 
+const pays3 =[500,500,500,500,500,500,500,500,500,500,500,500];
+let total5 =0;
+for(let index =0; index<pays3.length; index++){
+  const tax = (pays[index]*3.3/100)
+  total5 += pays[index] - tax - 10;
+}
+  console.log(total5);
+
+// 2번문제 -3 
+const pays3 =[500,500,500,500,500,500,500,500,500,500,500,500];
+let total5 =0;
+for(let index =0; index<pays3.length; index++){
+const tax =(pays[index]*3.3/100)
+total5 += pays[index] - tax -10;
+}
+
+// 3번문제 
+const pays = [500, 0, 550, 250,400,0,600,700,0,150,520,0];
+let total = 0;
+for(let index = 0; index <pays.length; index++){
+  const month = index + 1
+  // 1월-2월-3월 이런식으로 1씩 더해지는것임
+  if (pays[index] >= 500) {
+    console.log (month + '월은 수고 하셨습니다.')
+  } else if (pays[index] === 0) {
+    console.log(month + '월은 쉬었습니다.')
+  }else if (pays[index] < 500) {
+    console.log (month +'월은 조금 더 노력하세요.')
+  }
+}
+  // 3번문제 -1 
+  const pays =[500,0,550,250,400,0,600,700,0,150,520,0];
+  let total =0;
+  for(let index =0; index<pays.length; index++){
+    const month = index +1
+  if(pays[index]>=500){
+    console.log(month+'월은 수고 하셨습니다.')
+  } else if (pays[index]== 0){
+    console.log(month +'월은 쉬었습니다.')
+  }else if (pays[index]<500){
+    console.log(month + '월은 조금 더 노력하세요.')
+  }
+}
+
+//4번문제 
+const pay2 = [500, 0, 550, 250,400,0,600,700,0,150,520,0];
+let total = 0;
+for(let index = 0; index<pay2.length; index++){
+  total = pay2[index] + total;
+}
+const avg = total / pay2.length;
+console.log(total, avg);
+
+// 4번문제 -1 
+const pay2 =[500,0,550,250,400,0,600,700,0,150,520,0];
+let total =0;
+for(let index =0; index<pay2.length; index++){
+  total = pay2[index]+ total;
+}
+const avg = total/pay2.length;
+console.log(total,avg);
+
+// // 5번 문제 
+const stringFirst = '올해 상반기 카드 사용 금액은';
+const stringLast = '사용 하였습니다.';
+const cardPays = [120, 40, 110, 140, 70, 60];
+console.log ('올해 상반기 카드 사용 금액은');
+for(let index = 0; index <cardPays.length; index++){
+  const month1 = index + 1; 
+  console.log(month1+ '월'+ cardPays[index]+ '만원' );
+}
+console.log('사용 하였습니다.');
+
+// 5번문제 -1 
+const stringFirst ='올해 상반기 카드 사용 금액은';
+const stringLast = '사용 하였습니다.';
+const cardPays =[120,40,110,140,70,60];
+console.log('올해 상반기 카드 사용 금액은');
+for(let index =0; index<cardPays.length; index++){
+  const month1 = index+ 1;
+  console.log(month1+'월'+cardPays[index]+'만원');
+}
+console.log('사용 하였습니다.');
+
+// 6번 문제 
+const stringFirst1 = '올해 상반기 카드 사용 금액은';
+const stringLast2 = '사용 하였습니다.';
+const cardPays1 = [120, 40, 110, 140, 70, 60];
+const d = 0.95;
+console.log ('올해 상반기 카드 사용 금액은');
+for(let index = 0; index <cardPays1.length; index++){
+  const month2 = index + 1; 
+  // const pays1 = cardPays1[1][3][5] * d;
+  if (month2 % 2 === 1){
+    const discount = cardPays1[index] *d;
+    console.log(month2+ '월 '+ discount + '만원');
+  }else{
+    console.log(month2+ '월 '+ cardPays1[index]+ '만원' );
+  } 
+}
+console.log('사용 하였습니다.');
+
+// 6번문제 -1 
+const stringFirst1 ='올해 상반기 카드 사용 금액은 ';
+const stringLast2 = '사용하였습니다.';
+const cardPays1 =[120,40,110,140,70,60];
+const d = 0.95;
+console.log('올해 상반기 카드 사용 금액은');
+for(let index =0; index<cardPays1.length; index++){
+  const month2 = index +1;
+  if(month2 %2 ===1){
+    const discount = cardPays1[index]*d;
+  }else{
+    console.log(month2 + '월'+ cardPays1[index]+ '만원');
+  }
+}
+console.log('사용 하였습니다.');
+
+// function 
+  //1번
+const question1 = function(salary) {
+  const tax = (salary *3.3/100)
+  const realSalary = salary - tax - 10;
+  return (realSalary * 12)
+};
+
+const devA = question1(500);
+const devB = question1(600);
+
+// 1번 -1 
+const question1 = function(salary){
+  const tax = (salary *3.3 /100)
+  const realSalary = salary - tax - 10;
+  return (realSalary*12)
+};
+const devA = question1(500);
+const devB = question1(600);
+
+//2번문제
+const question2 = function(x) {
+  x[x.length-1] = x[x.length-1]+1;
+  console.log(x)
+};
+const a = [1, 2, 3];
+const b = ['a', 'b', 'c', 'd'];
+const c = 'abcde';
+question2(a);
+question2(b);
+question2(c);
+question2(a);
+question2(b);
+question2(c);
+
+// 2번문제 -1 
+const question2 = function(x){
+  x[x.length-1] = x[x.length-1]+1;
+  console.log(x);
+};
+const a = [1, 2, 3];
+const b = ['a', 'b', 'c', 'd'];
+const c = 'abcde';
+question2(a);
+question2(b);
+question2(c);
+question2(a);
+question2(b);
+question2(c);
+
+// 3번 
+// let total1 = 0;
+// for (let index = 0; index < array1.length; index++) {
+//   total1 += array1[index];
+// }
+// console.log(array1[0] + '부터 ' + array1[array1.length - 1] + '까지의 합은 ' + total1 + '이고, 평균은 ' + (total1 / array1.length) + '이다.');
+
+// total1 = 0;
+// for (let index = 0; index < array11.length; index++) {
+//   total1 += array11[index];
+// }
+// console.log(array11[0] + '부터 ' + array11[array11.length - 1] + '까지의 합은 ' + total1 + '이고, 평균은 ' + (total1 / array11.length) + '이다.');
+
+// total1 = 0;
+// for (let index = 0; index < array21.length; index++) {
+//   total1 += array21[index];
+// }
+// console.log(array21[0] + '부터 ' + array21[array21.length - 1] + '까지의 합은 ' + total1 + '이고, 평균은 ' + (total1 / array21.length) + '이다.');
+
+const question3 = function(x) {
+  let total1 = 0;
+  for (let index = 0; index < x.length; index++) {
+    total1 += x[index];
+  }
+  console.log(x[0] + '부터 ' + x[x.length - 1] + '까지의 합은 ' + total1 + '이고, 평균은 ' + (total1 / x.length) + '이다.');
+
+}
+
+const array1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const array11 = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+const array21 = [21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
+question3(array1)
+question3(array11)
+question3(array21)
+
+// 3번 -1 
+const question3 = function(x) {
+  let total1 = 0;
+  for (let index = 0; index < x.length; index++) {
+    total1 += x[index];
+  }
+  console.log(x[0] + '부터 ' + x[x.length - 1] + '까지의 합은 ' + total1 + '이고, 평균은 ' + (total1 / x.length) + '이다.');
+
+}
+
+const array1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const array11 = [11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+const array21 = [21, 22, 23, 24, 25, 26, 27, 28, 29, 30];
+question3(array1)
+question3(array11)
+question3(array21)
+
+// 4번 문제 
+const afterFunc = function() {
+  console.log('콜백 함수 호출');
+};
+const connectFunc = function(callback) {
+  console.log('서버 연결');
+  callback();
+  console.log('연결 종료');
+};
+connectFunc(afterFunc);
+
+// 4번 문제 -1 
+const afterFunc = function(){
+  console.log('콜백 함수 호출')
+};
+const connectFunc = function(callback){
+  console.log('서버 연결');
+  callback();
+  console.log('연결 종료');
+};
+
+</script>
+
