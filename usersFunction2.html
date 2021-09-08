@@ -1,0 +1,20 @@
+<script>
+  const users = [];
+  const membersCreate = function(user) {
+    users.push(user);
+    return users;
+  };
+  const membersRead = function() {
+    return users;
+  };
+  const membersDelete = function(index){
+    users.splice(index, 1);
+    return users;
+  };
+  const membersUpdate = function(index, user){
+    users[index] = user;
+    return users;
+  };
+  // command + option + f 로 바꾸기 
+  // member 은 user로, members는 users로 
+  </script>
