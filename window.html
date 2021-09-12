@@ -17,25 +17,58 @@
 // const array1 = JSON.parse(string1);
 // const string2 = JSON.stringify(array1);
 
+// // storageGet Create
+// sessionStorage.setItem('ss1', 1);
+// sessionStorage.setItem('ss2', '이');
+// sessionStorage.setItem('ss3', undefined);
+
+// // storageGet Read
+// const ss1 = sessionStorage.getItem('ss1');
+// const ss2 = sessionStorage.getItem('ss2');
+// const ss3 = sessionStorage.getItem('ss3');
+
+// // storageGet Update
+// sessionStorage.setItem('ss1', [1, 2, 3]);
+// sessionStorage.setItem('ss2', {
+//   key1: 'value1'
+// });
+// sessionStorage.setItem('ss3', function() {});
+
+// // storageGet Delete
+// sessionStorage.removeItem('ss1');
+// sessionStorage.clear();
+
+// const string1 = '[1, 2, 3]';
+// const array1 = JSON.parse(string1);
+// const string2 = JSON.stringify(array1);
+
 // storageGet Create
-sessionStorage.setItem('ss1', 1);
-sessionStorage.setItem('ss2', '이');
-sessionStorage.setItem('ss3', undefined);
+// sessionStorage.setItem('ss1', 1);
+// sessionStorage.setItem('ss2', '이');
+// sessionStorage.setItem('ss3', undefined);
 
-// storageGet Read
-const ss1 = sessionStorage.getItem('ss1');
-const ss2 = sessionStorage.getItem('ss2');
-const ss3 = sessionStorage.getItem('ss3');
+// // storageGet Read
+// const ss1 = sessionStorage.getItem('ss1');
+// const ss2 = sessionStorage.getItem('ss2');
+// const ss3 = sessionStorage.getItem('ss3');
 
-// storageGet Update
-sessionStorage.setItem('ss1', [1, 2, 3]);
-sessionStorage.setItem('ss2', {
-  key1: 'value1'
-});
-sessionStorage.setItem('ss3', function() {});
+// // storageGet Update
+// sessionStorage.setItem('ss1', [1, 2, 3]);
+// sessionStorage.setItem('ss2', {
+//   key1: 'value1'
+// });
+// sessionStorage.setItem('ss3', function() {});
 
-// storageGet Delete
-sessionStorage.removeItem('ss1');
-sessionStorage.clear();
+// // storageGet Delete
+// sessionStorage.removeItem('ss1');
+// sessionStorage.clear();
+
+const storageGet = sessionStorage.getItem('array2');
+const storageLogical = storageGet || '[1, 2, 3]';
+const array2 = JSON.parse(storageLogical);
+const plus1 = array2.length + 1;
+array2.push(plus1);
+const storageSet = JSON.stringify(array2);
+sessionStorage.setItem('array2', storageSet);
 
 </script>
