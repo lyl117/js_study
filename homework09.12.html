@@ -1,0 +1,106 @@
+<script>
+// json
+// json = window.json이다.
+const string1 = '[1, 2, 3]';
+// = 문자열 배열
+const array1 = JSON.parse(string1);
+// 자바스크립트 화된 모양으로 = 배열로 바꾸는 단계, 즉 자바스크립트에 활용 할 수 있도록 만드는 단계
+const string2 = JSON.stringify(array1);
+// 다시 백엔드랑 통신하기 위해 문자열로 만드는 단계 
+
+sessionStorage, localStorage
+// localStorage는 때에 따라 일주일, 이틀 등 달라지지만 영구적으로 남아 있을 수 있다. 
+
+sessionStorage crud 
+// 호출을 하면 prototype이 같이 뜨게 되는데 프로토 타입은 고유의 함수로 사라지지 않는다.
+// 프로토타입 = setItem, getItem, removeItem
+// storageGet Create
+sessionStorage.setItem('ss1', 1);
+sessionStorage.setItem('ss2', '이');
+sessionStorage.setItem('ss3', undefined);
+// 문자열로 들어가게 됨
+
+// storageGet Read
+const ss1 = sessionStorage.getItem('ss1');
+const ss2 = sessionStorage.getItem('ss2');
+const ss3 = sessionStorage.getItem('ss3');
+// 문자열을 그대로 읽어줌
+
+// storageGet Update
+sessionStorage.setItem('ss1', [1, 2, 3]);
+sessionStorage.setItem('ss2', {
+  key1: 'value1'
+});
+// 오브젝트를 넣을 수도 있고,
+sessionStorage.setItem('ss3', function() {});
+// 함수를 넣을 수도 있다.
+
+// storageGet Delete
+sessionStorage.removeItem('ss1');
+// 내가 지우고 싶은 걸 지울 수 있다.
+sessionStorage.clear();
+// 전체 다 지울 수 있다. 
+
+JSON을 사용해 sessionStorage에 배열 넣기
+const storageGet = sessionStorage.getItem('array2');
+// array2를 부른다.
+const storageLogical = storageGet || '[1, 2, 3]';
+// array2는 빈 값이기 때문에 null이 뜨는데, null이기 때문에 false 여서 '[1, 2, 3]'이 storageLogical에 값이 들어가게 된다.
+// ||는 true면 storage 값이 들어가고, false면 '[1,2,3]'이 들어간다. 
+const array2 = JSON.parse(storageLogical);
+// storageLogical값을 문자열을 제외 시켜 배열로 바꾼다.
+const plus1 = array2.length + 1;
+// 3에 1을 더해서 사용한다.
+array2.push(plus1);
+// 더한값을 배열에 넣어준다.
+const storageSet = JSON.stringify(array2);
+// 다시 문자열로 만든다.
+sessionStorage.setItem('array2', storageSet);
+// 'array2'에 storageSet값을 넣어준다.
+
+sessionStorage, localStorage 실습
+
+// const members = [];
+const membersGet = sessionStorage.getItem('members');
+const membersLogical = membersGet || '[]';
+const members = JSON.parse(membersLogical);
+// 1.맨앞에 넣어준다.
+
+문제: 리팩토링
+const membersSet = function(){
+// 3.공통부분을 함수로 만들고
+const membersSet = JSON.stringify(members);
+sessionStorage.setItem('members', membersSet);
+// 4. Script상수에 넣는다.
+}
+const membersCreate = function(member) {
+  members.push(member);
+  membersSet();
+  // 5. 아래 두줄은 지워주고 mebersSet을 호출한다.
+const membersSet = JSON.stringify(members);
+sessionStorage.setItem('members', membersSet);
+// 2.const membersGet부터 members값을 각각 create,read,delete,update에 넣어준다.
+// 6. 공통적으로 반복되는 부분을 함수로 만드는 작업(내부 구조 개선)을 리팩토링(Refactoring)이라 한다.
+  return members;
+};
+
+const membersRead = function() {
+  membersSet();
+  return members;
+};
+
+const membersDelete = function(index) {
+members.splice(index, 1);
+membersSet();
+  return members;
+};
+
+const membersUpdate = function(index, member) {
+members[index] = member;
+membersSet();
+  return members;
+  // VSCode 서로 다른 파일 비교하는 방법 설명
+  // 원하는 파일 오른쪽 버튼을 누르고 select for compare을 누르고 나머지 다른 파일에 compare wirh selected를 누르면 비교가 가능하다.
+};
+
+</script>
