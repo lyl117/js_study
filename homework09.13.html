@@ -1,0 +1,70 @@
+<script>
+// 1번 문제 
+const score = {
+korean: 90,
+english: 70,
+math: 80,
+science: 60,
+code: 100
+};
+let total = 0;
+let c =0;
+for(const key in score){
+  total += score[key];
+  console.log(key);
+  console.log(score[key]);
+  c += 1;
+}
+const avg =total /c;
+console.log(avg);
+
+// 2번 
+const score1 ={
+  korean1: 90,
+  english1: 70,
+  math1: 80,
+  science1: 60,
+  code1: 100 
+};
+let total1 =0;
+let c1 =0;
+for(const key in score1){
+  if(key === 'code1'){
+    total +=score1[key];
+  }else {
+    total1 += score1[key];
+  }
+  console.log(key);
+  console.log(score1[key]);
+  c1 += 1;
+}
+const avg1 = total1 / c1;
+console.log(avg1);
+
+// 3번 
+const animal ={
+  cat : ['페르시안'. '시암'],
+  dog : ['포메라니안','푸들','말티즈'],
+  elephant : ['인도코끼리']
+}
+console.log(animal);
+
+// 4번 
+const users = [];
+const membersCreate = function(user) {
+  users.push(user);
+  return users;
+};
+const membersRead = function() {
+  return users;
+};
+const membersDelete = function(index){
+  users.splice(index, 1);
+  return users;
+};
+const membersUpdate = function(index, user){
+  users[index] = user;
+  return users;
+};
+</script>
+</script>
