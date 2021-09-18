@@ -1,0 +1,36 @@
+<script>
+  // 1번 
+  sessionStorage.setItem('key1',1);
+  let index = 0;
+  // const f1 = sessionStorage.getItem('key1');
+  // const f2 = sessionStorage.setItem('key1', 1);
+   for(let index=0; index <=10; index+=1){
+    console.log(index);
+   }
+  window.location.reload(index);
+   console.log(index+=1);
+  
+  // 2번
+  localStorage.setItem('f4',0);
+  for(let index6 =1; index6<=10; index6 +=1){
+  if (index6 % 2 === 1){
+    console.log(index6);
+  }else { 
+    console.log(index6)
+  }
+  }
+  const oodEven = index6 % 2 ? 2===1 : 2===0;
+  console.log(oodEven);
+  
+  // 3번 
+  document.write('# MainQuery<br>');
+  document.write('select members.name from (<br>');
+  document.write('/* SubQuery */<br>');
+  document.write(' select'+  '\'홍길동\'' + ' as name, '+' 39 as age<br>');
+  document.write(') members;');
+  
+
+  
+  
+  
+  </script>
