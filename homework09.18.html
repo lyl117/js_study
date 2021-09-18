@@ -1,14 +1,31 @@
 <script>
   // 1번 
-  sessionStorage.setItem('key1',1);
-  let index = 0;
-  // const f1 = sessionStorage.getItem('key1');
-  // const f2 = sessionStorage.setItem('key1', 1);
-   for(let index=0; index <=10; index+=1){
-    console.log(index);
-   }
-  window.location.reload(index);
-   console.log(index+=1);
+  // sessionStorage.setItem('key1',1);
+  // let index = 0;
+  // // const f1 = sessionStorage.getItem('key1');
+  // // const f2 = sessionStorage.setItem('key1', 1);
+  //  for(let index=0; index <=10; index+=1){
+  //   console.log(index);
+  //  }
+  // window.location.reload(index);
+  //  console.log(index+=1);
+  
+  sessionStorage.setItem('count',1);
+  const count = 10;
+    for(let i =1; i<count; i++){
+      console.log(i);
+      sessionStorage.setItem(count,{
+        count: 1
+      });
+      location.reload(count);
+    }
+   
+  
+
+  // let index = 0;
+  // let f1 = 0;
+  // f1 += today.getIndex();
+  // f1("location.reload()",6000)
   
   // 2번
   localStorage.setItem('f4',0);
@@ -19,7 +36,7 @@
     console.log(index6)
   }
   }
-  const oodEven = index6 % 2 ? 2===1 : 2===0;
+  const oodEven = index6 % 2 ? '2 === 1' : '2 === 0';
   console.log(oodEven);
   
   // 3번 
