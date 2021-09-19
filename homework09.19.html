@@ -1,0 +1,18 @@
+<script>
+const storageGet = sessionStorage.getItem('number');
+const storageLogical = storageGet || '0';
+const number = JSON.parse(storageLogical);
+const plus1 = number + 1;
+const storageSet = JSON.stringify(plus1);
+sessionStorage.setItem('number', storageSet);
+document.writeln(plus1)
+document.writeln(plus1 % 2?'홀수':'짝수')
+
+document.write('<br><br>');
+
+document.write('# MainQuery<br>');
+document.write('select members.name from (<br>');
+document.write('&nbsp;&nbsp;/* SubQuery */<br>');
+document.write('&nbsp;&nbsp;select'+  '\'홍길동\'' + ' as name, '+' 39 as age<br>');
+document.write(') members;');
+</script>
