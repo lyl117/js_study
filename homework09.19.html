@@ -1,4 +1,14 @@
 <script>
+// 1번 
+const storageGet = sessionStorage.getItem('number');
+const storageLogical = storageGet || '0';
+const number = JSON.parse(storageLogical);
+const plus1 = number + 1;
+const storageSet = JSON.stringify(plus1);
+sessionStorage.setItem('number', storageSet);
+document.writeln(plus1)
+
+// 2번 
 const storageGet = sessionStorage.getItem('number');
 const storageLogical = storageGet || '0';
 const number = JSON.parse(storageLogical);
