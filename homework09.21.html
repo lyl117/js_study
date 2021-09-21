@@ -1,0 +1,34 @@
+<script>
+// 1번 
+const storageGet = sessionStorage.getItem('array2');
+const storageLogical = storageGet || '[1, 2, 3]';
+const array2 = JSON.parse(storageLogical);
+const plus1 = array2.length + 1;
+array2.push(plus1);
+const storageSet = JSON.stringify(array2);
+sessionStorage.setItem('array2', storageSet);
+
+const storageGet = sessionStorage.getItem('number');
+const storageLogical = storageGet || '[1,2,3]';
+const number = JSON.parse(storageLogical);
+const plus1 = number+ 1;
+const storageSet = JSON.stringify(number);
+sessionStorage.setItem('number', storageSet);
+
+const storageGet = sessionStorage.getItem('array2');
+// array2를 불러 storageGet에 null 값이 뜬다.
+const storageLogical = storageGet || '[1, 2, 3]';
+// storageLogical 에 storageGet이 true면 스토리지겟 값을 넣는다.false면 '[1,2,3]'값이 들어간다.
+const array2 = JSON.parse(storageLogical);
+// '[1,2,3]'을 숫자로 바꾼다.
+const plus1 = array2.length + 1;
+// '[1,2,3]' length는 3인데 3+ 1= 4 를 추가한다.
+array2.push(plus1);
+// 4를 추가한다.
+const storageSet = JSON.stringify(array2);
+// 다시 문자화한다.
+sessionStorage.setItem('array2', storageSet);
+// "[1,2,3,4]" 을 넣는다. 
+
+//새로고침 할 경우 1씩 계속 배열안에 늘어난다. (" " 안에 있기 때문에 문자열이다)
+</script>
