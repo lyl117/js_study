@@ -1,0 +1,53 @@
+<script>
+  // 내장함수 복습 
+  const membersRead = function(){
+    return members;
+  };
+  //function이 이런식으로 사용이된다. 하지만 윈도우 객체 안으로 function을 만들 때는 그냥 function만 적어주면 된다.
+  sessionStorage.setItem('ss1',1)
+  // create 
+  const ss1 = sessionStorage.getItem('ss1');
+  // read
+  sessionStorage.setItem('ss1',[1,2,3]);
+  // update 
+  sessionStorage.removeItem('ss1');
+  sessionStorage.clear();
+  // delete 
+  // 모두 다 제거 
+
+const storageGet = sessionStorage.getItem('array2');
+// array2를 불러 storageGet에 null 값이 뜬다.
+const storageLogical = storageGet || '[1, 2, 3]';
+// storageLogical에 storageGet이 true면 스토리지겟 값을 넣는다. false면 '[1,2,3]' 값이 들어간다.
+const array2 = JSON.parse(storageLogical);
+// '[1,2,3]'을 숫자로 바꾼다.
+const plus1 = array2.length + 1;
+//'[1,2,3]' length는 3인데 3+1=4를 추가한다.
+array2.push(plus1);
+// 4를 추가한다.
+const storageSet = JSON.stringify(array2);
+// 다시 문자화한다.
+sessionStorage.setItem('array2', storageSet);
+// '[1,2,3,4]'를 넣는다.
+// 새로고침 할 경우 1씩 계속 배열안에 늘어난다.(" "안에 있기 때문에 문자열이다.)
+
+debugger;
+document.write('documentWrite1');
+document.write('documentWrite2');
+document.write('documentWrite3');
+// document.write는 쭉 적혀지게 됨.
+document.writeln('documentWrite4');
+document.writeln('documentWrite5');
+// writeln은 스페이스를 누른 것 처럼 띄어쓰기가 됨.
+document.writeln('documentWrite6<br>');
+// br은 아예 줄바꿈이(엔터) 됨
+document.writeln('documentWrite7');
+document.writeln('documentWrite8');
+document.writeln('documentWrite9');
+// window.location.reload();
+// -> 새로 고침 
+// window.location.href = 'https://naver.com';
+// -> 링크로 들어감
+// window.history.back();
+// -> 뒤로 가기
+</script>
