@@ -1,0 +1,48 @@
+<script>
+  // sessionStorage.setItem('ss1',1);
+  // sessionStorage.setItem('ss2','이');
+  // sessionStorage.setItem('ss3',undefined);
+
+  // const ss1 = sessionStorage.getItem('ss1');
+  // const ss2 = sessionStorage.getItem('ss2');
+  // const ss3 = sessionStorage.getItem('ss3');
+
+  // sessionStorage.setItem('ss3',[1,2,3]);
+  // sessionStorage.setItem('ss2'{
+  //   key1: 'value1'
+  // });
+  // sessionStorage.setItem('ss3', function(){});
+
+  // sessionStorage.removeItem('ss1');
+  // sessionStorage.clear();
+
+  // setItem = create
+  // getItem = read
+  // setItem = update
+  // remove = delete
+  // clear = delete 
+
+// const storageGet = sessionStorage.getItem('array2');
+// const storageLogical = storageGet || '[1, 2, 3]';
+// const array2 = JSON.parse(storageLogical);
+// const plus1 = array2.length + 1;
+// array2.push(plus1);
+// const storageSet = JSON.stringify(array2);
+// sessionStorage.setItem('array2', storageSet);
+
+const storageGet = sessionStorage.getItem('number');
+const storageLogical = storageGet || '0';
+const number = JSON.parse(storageLogical);
+const plus1 = number + 1;
+const storageSet =JSON.stringify(plus1);
+sessionStorage.setItem('number', storageSet);
+document.writeln(plus1)
+
+// const storageGet = sessionStorage.getItem('number');
+// const storageLogical = storageGet || '0';
+// const number = JSON.parse(storageLogical);
+// const plus1 = number + 1;
+// const storageSet = JSON.stringify(plus1);
+// sessionStorage.setItem('number', storageSet);
+// document.writeln(plus1)
+</script>
