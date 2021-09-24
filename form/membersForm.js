@@ -22,8 +22,12 @@ const membersCreate = function(member) {
 };
 
 const membersRead = function() {
-  for(let index in members){
-    document.writeln(members[index]);
+  const tagPre = document.getElementById('tag-pre');
+  for (let index in members) {
+    // let innerHTML = tagPre.innerHTML + members[index];
+    // innerHTML += '\n';
+    // tagPre.innerHTML = innerHTML;
+    tagPre.innerHTML = tagPre.innerHTML+ members[index]+'\n';
   }
   return members;
 };
