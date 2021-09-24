@@ -1,0 +1,58 @@
+<script>
+  // input.value.CRUD
+
+  // Input 객체 Create
+inputTextObject.value = 'abc';
+
+// Input 객체 Read
+inputTextObject.a1 = inputTextObject.value;
+inputTextObject.a2 = inputTextObject.value;
+
+// Input 객체 Update
+inputTextObject.value = 'membersDelete(0)';
+
+// Input 객체 Delete
+delete inputTextObject.value;
+inputTextObject.value = '';
+
+// 1번 
+// create 
+inputTextObject.value ='abc';
+// inputTexobject.value 에 'abc'를 넣는다.
+// read 
+inputTextObject.a1 = inputTextObject.value;
+inputTextObject.a2 = inputTextObject.value;
+// inputTextObject.value 값을 a1,a2라는 변수에 넣는다.
+
+// update 
+inputTextObject.value = 'membersDelete(0)';
+
+// delete 
+delete inputTextObject.value;
+// delete로는 지울 수 없다. 똑같은 화면 그대로 나타날 것이다.
+inputTextObject.value ='';
+// 이렇게 빈 문자열을 넣어서 바꿔줘야 한다.
+
+// Pre.innerHTML CRUD
+const tagPre = document.getElementById('tag-pre');
+// tag-pre 값을 찾는다를 선언함.
+
+// Pre 객체 Create
+tagPre.innerHTML = 'abc';
+// tagPre.innerHTML에 'abc'값을 넣는다.
+
+// Pre 객체 Read
+tagPre.a1 = tagPre.innerHTML;
+tagPre.a2 = tagPre.innerHTML;
+// a1,a2라는 변수에 넣는다.
+
+// Pre 객체 Update
+tagPre.innerHTML = 'membersDelete(0)';
+// tagPre.innerHTML에 쓰여져 있는 것을 없애고 'membersDelete(0)'를 넣는다.
+
+// Pre 객체 Delete
+delete tagPre.innerHTML;
+tagPre.innerHTML = '';
+// delete가지고는 안된다. '' 빈문자열을 넣어서 없애야 한다.
+
+</script>
