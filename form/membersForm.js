@@ -11,6 +11,13 @@ const inputTextObject = document.getElementsByName('input-text')[0];
 
 inputTextObject.value = nameText;
 
+
+const inputHiddens = queryString.getAll('input-hidden');
+const inputHidden = inputHiddens[0];
+
+inputTextObject.focus();
+inputTextObject.blur();
+
 // 문제 풀기
 
 const membersSubmit = function(form) {
