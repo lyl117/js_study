@@ -4,11 +4,6 @@ const members = JSON.parse(membersLogical);
 
 const queryString = new URLSearchParams(window.location.search);
 const nameText = queryString.get('input-text');
-const inputHiddens = queryString.getAll('input-hidden');
-const inputHidden = inputHiddens[0];
-
-const inputTextObjects = document.getElementsByName('input-text');
-const inputTextObject = inputTextObjects[0];
 
 // 문제 풀기
 
