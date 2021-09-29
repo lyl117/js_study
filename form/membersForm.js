@@ -5,6 +5,12 @@ const members = JSON.parse(membersLogical);
 const queryString = new URLSearchParams(window.location.search);
 const nameText = queryString.get('input-text');
 
+// const inputTextObjects = document.getElementsByName('input-text');
+// const inputTextObject = inputTextObjects[0];
+const inputTextObject = document.getElementsByName('input-text')[0]; 
+
+inputTextObject.value = nameText;
+
 // 문제 풀기
 
 const membersSubmit = function(form) {
