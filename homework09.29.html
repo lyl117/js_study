@@ -1,0 +1,18 @@
+<script>
+//   class Class1 {
+//   v1 = '멤버 변수';
+//   m1 = function() {
+//     return '멤버 메소드';
+//   };
+// }
+// const class1 = new Class1();
+// const c1 = class1.v1;
+// const c2 = class1.m1();
+
+const queryString = new URLSearchParams(window.location.search);
+// new 는 무조건 Class(=URLSearchParams) 앞에 붙는다.
+// window.location.search (즉, ?뒤에 있는 모든 주소를 말한다.)의 값을 Query string에 넘긴다.
+const nameText = queryString.get('input-text');
+// 쿼리스트링 값을 nameText에 넘긴다.
+
+</script>
