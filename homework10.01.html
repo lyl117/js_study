@@ -1,0 +1,251 @@
+<script>
+// window 객체 
+var v1 = 'a';
+v2 = 'b';
+const condition1 = v1 === window.v1;
+const condition2 = v2 === window.v2;
+
+window.v3 = 'c'
+// 이런식으로 앞에 window 를 써줘야 한다.
+// 윈도우는 global안에 무조건 들어간다.
+
+// window 객체 안으로 function 만들기 
+function f1() {}
+const condition3 = f1 === window.f1;
+// - 원래는 function이 → const membersRead = function() {
+  //return members;
+// }; 
+// 이런식으로 사용이 된다. → 하지만 윈도우 객체 안으로 function을 만들 때는 그냥 function 적어주면 된다.
+//- 결국 f1 과 window.f1은 같다.
+
+confirm, alert, console.log
+if (window.confirm('진행 하시겠습니까?')) {
+  // 창을 띄워준다.
+  window.console.log('진행'); => true
+// console 과 alert 그리고 confirm 이 있다. 
+// true건 false건 console과 alert 둘 중 하나를 사용해주면 된다. 
+
+} else {
+  window.alert('멈춤'); => false 
+}
+
+JSON
+const string1 = '[1, 2, 3]';
+// 배열이지만 문자로 들어간다.
+const array1 = JSON.parse(string1);
+// parse 는 인수로 전달받은 문자열을 숫자로 자바스크립트 객체로 변환하여 변환한다.
+const string2 = JSON.stringify(array1);
+// stringfy는 다른 사람과 통신할 때는 다시 문자로 바꿔준다.
+
+sessionStorage, localStorage
+// - 브라우저에서 사용하는 DB로 쿠키와 비슷하다고 생각하면 된다.
+// - 주로 로그인 파트에서 쿠키가 사용되고, 나머지는 주로 많이sessionStorage 나 localStorage 가 사용된다.  세션스토리지와 로컬스토리지는 같기 때문에 이름만 바꿔서 사용하면 된다.
+
+sessionStorage CRUD
+// create
+sessionStorage.setItem('ss1',1);
+sessionStorage.setItem('ss2','이');
+sessionStorage.setItem('ss3', undefined);
+
+// read
+const ss1 = sessionStorage.getItem('ss1');
+const ss2 = sessionStorage.getItem('ss2');
+const ss3 = sessionStorage.getItem('ss3');
+
+// update 
+sessionStorage.setItem('ss1', [1,2,3]);
+sessionStorage.setItem('ss2', {
+  key1: 'value1'
+});
+sessionStorage.setItem('ss3', function(){});
+
+// delete 
+sessionStorage.removeItem('ss1');
+// 하나씩 제거 
+sessionStorage.clear();
+// 모두다 제거 
+
+// sessionStorage 저장 기간: 새로고침 해도 남아 있지만, 해당 탭이 닫히면 사라진다.
+// localStorage 저장 기간: 영구 보관이 기본이나, 브라우저에 따라 모바일 환경에 따라 다르다. 용량은 5MB까지
+// sessionStorage를 localStorage 변경하여 확인 하기
+// => 똑같다.
+
+JSON을 사용해 sessionStorage에 배열 넣기
+
+const storageGet = sessionStorage.getItem('array2');
+// array2를 불러 storageGet에 null 값이 뜬다.
+const storageLogical = storageGet || '[1, 2, 3]';
+// storageLogical 에 storageGet이 true면 스토리지겟 값을 넣는다.false면 '[1,2,3]'값이 들어간다.
+const array2 = JSON.parse(storageLogical);
+// '[1,2,3]'을 숫자로 바꾼다.
+const plus1 = array2.length + 1;
+// '[1,2,3]' length는 3인데 3+ 1= 4 를 추가한다.
+array2.push(plus1);
+// 4를 추가한다.
+const storageSet = JSON.stringify(array2);
+// 다시 문자화한다.
+sessionStorage.setItem('array2', storageSet);
+// "[1,2,3,4]" 을 넣는다. 
+
+//새로고침 할 경우 1씩 계속 배열안에 늘어난다. (" " 안에 있기 때문에 문자열이다)
+
+새로고침해서 1씩 계속 늘어나게 하는 법 
+const storageGet = sessionStorage.getItem('array2');
+// array값을 불러 storageGet에 넘긴다.
+const storageLogical = storageGet || '[1,2,3]';
+// storageGet 값이 참이면 그래도 storageLogical에 넣고, 거짓이면 '[1,2,3]'이 뜨게 함 .
+const array2 = JSON.parse(storageLogical);
+// 파싱해서 값을 숫자화한다.
+const plus1 = array2.length +1;
+// array2값에 1을 더해서 plus1에 넘긴다.
+array2.push(plus1);
+// plus에 4라는 값을 추가한다.
+const storageSet = JSON.stringify(array2);
+// 다시 문자화한다.
+sessionStorage.setItem('array2', storageSet);
+// '[1,2,3,4]'을 넣는다.
+
+sessionStorage, localStorage 실습
+// const members = [];
+
+const membersGet = sessionStorage.getItem('members');
+const membersLogical = membersGet || '[]';
+const members = JSON.parse(membersLogical);
+
+const membersSet = function(){
+// 공통된 함수 넣기
+  const membersSet = JSON.stringify(members);
+// membersSet 스크립트 상수에 넣기
+  sessionStorage.setItem('members', membersSet);
+}
+
+const membersCreate = function(member) {
+  members.push(member);
+//   const membersSet = JSON.stringify(members);
+// sessionStorage.setItem('members', membersSet);
+membersSet();  
+return members;
+};
+
+const membersRead = function() {
+//   const membersSet = JSON.stringify(members);
+// sessionStorage.setItem('members', membersSet);  
+membersSet();
+return members;
+};
+
+const membersDelete = function(index) {
+  members.splice(index, 1);
+//   const membersSet = JSON.stringify(members);
+// sessionStorage.setItem('members', membersSet);
+membersSet();  
+return members;
+};
+
+const membersUpdate = function(index, member) {
+  members[index] = member;
+//   const membersSet = JSON.stringify(members);
+// sessionStorage.setItem('members', membersSet);
+membersSet();  
+return members;
+};
+
+//document.write, location
+
+debugger;
+document.write('documentWrite1');
+document.write('documentWrite2');
+document.write('documentWrite3');
+// document.write는 쭉 적혀지게 됨.
+document.writeln('documentWrite4');
+document.writeln('documentWrite5');
+// writeln은 스페이스를 누른 것 처럼 띄어쓰기가 됨.
+document.writeln('documentWrite6<br>');
+// br은 아예 줄바꿈이(엔터) 됨
+document.writeln('documentWrite7');
+document.writeln('documentWrite8');
+document.writeln('documentWrite9');
+// window.location.reload();
+// -> 새로 고침 
+// window.location.href = 'https://naver.com';
+// -> 링크로 들어감
+// window.history.back();
+// -> 뒤로 가기
+
+document.write.location 실습
+
+const membersGet = sessionStorage.getItem('members');
+const membersLogical = membersGet || '[]';
+const members = JSON.parse(membersLogical);
+
+const membersCreate = function(member) {
+  members.push(member);
+  membersSet();
+window.location.reload();
+  return members;
+};
+
+const membersRead = function() {
+for (let index in members) {
+  document.writeln(members[index]);
+}
+  return members;
+};
+
+const membersDelete = function(index) {
+  members.splice(index, 1);
+  membersSet();
+window.location.reload();
+  return members;
+};
+
+const membersUpdate = function(index, member) {
+  members[index] = member;
+  membersSet();
+window.location.reload();
+  return members;
+};
+
+const membersSet = function() {
+  const membersSet = JSON.stringify(members);
+  sessionStorage.setItem('members', membersSet);
+};
+
+// 여기까지가 선언부
+membersRead();
+// 데모와 동일하게 하기위해서 (새로고침을 하면 새로 이름이 자동적으로 뜨게끔 함)선언부이후에 선언해주면 됨.
+
+document 객체
+
+html 기본 구조 만들기
+!키 입력 후 탭키 누르기 → 자동적으로 html에 필요한 구조가 뜸.
+
+<!DOCTYPE html>
+<html lang="en">
+<head> // 설정 부분 
+  <meta charset="UTF-8"> // 모든 언어를 표현함. 글자가 깨지지 않고, 요즘 들어 많이 사용됨.
+  <meta name="viewport" //모바일일 경우 크기 조절용 content="width=device-width, initial-scale=1.0">
+  <title>22 Document</title> // 사이트 제목이 된다.
+  <script> // html 구조 안에 script 가 들어갈 수 있다.
+  console.time('index1.js');
+  console.time('index2.js');
+  console.time('index3.js');
+  console.time('html bottom');
+  </script>
+  <script defer src="./index1.js"></script>
+  <script src="./index2.js"></script>
+  <script src="./index3.js"></script>
+// 스크립트 파일을 불러올 수 있다.
+
+</head>
+<body>
+  HTML index.html
+// 문서내용이 들어감 
+</body>
+</html>
+<script>
+// debugger;
+console.timeEnd('html bottom');
+
+
+</script>
