@@ -1,0 +1,29 @@
+<script>
+  // function solution(s) {
+//   let numbers = ['zero', 'one', 'two','three','four','five','six','seven','eight','nine']
+//   for(let i=0; i<numbers.length; i++){
+//     console.log(s, numbers[i]);
+//     s = s.replace(numbers[i], i)
+//     console.log(s);
+//   }
+//   return s
+// }
+
+// const r = solution('123one45twoone');
+
+function roughScale(x, base) {
+  const parsed = parseInt(x, base);
+  if (isNaN(parsed)) { return 0; }
+  return parsed * 100;
+}
+
+console.log(roughScale(' 0xF', 16));
+// expected output: 1500
+
+console.log(roughScale('321', 2));
+// expected output: 0
+
+var parseNum1 = Number(text1); var parseNum2 = parseInt(text2); console.log([text1, parseNum1 ]); console.log([text2, parseNum2 ]);
+
+
+</script>
