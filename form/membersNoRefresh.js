@@ -20,23 +20,32 @@ inputTextObject.blur();
 
 // 문제 풀기
 
-const membersSubmit = function(form) {
-  const inputTextObject = form['input-text'];
-  try {
-    const evalReturn = eval(inputTextObject.value);
-    console.log(evalReturn);
-  } catch(error) {
-    console.error(error);
-    alert(error);
-    return false;
-  }
-}
+// const membersSubmit = function(form) {
+//   const inputTextObject = form['input-text'];
+//   try {
+//     const evalReturn = eval(inputTextObject.value);
+//     console.log(evalReturn);
+//   } catch(error) {
+//     console.error(error);
+//     alert(error);
+//     return false;
+//   }
+// }
 
-const membersCreate = function(member) {
-  members.push(member);
+// const membersCreate = function(member) {
+//   members.push(member);
+//   membersSet();
+//   // window.location.reload();
+//   return members;
+// };
+
+const membersCreate = function(form) {
+  const inputTextObject = form['input-text'];
+  members.push(inputTextObject.value);
   membersSet();
-  // window.location.reload();
-  return members;
+  inputTextObject.value = '';
+  return membersRead();
+  
 };
 
 const membersRead = function() {
