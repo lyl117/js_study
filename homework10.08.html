@@ -33,12 +33,13 @@ function solution(s) {
   let numbers = ['zero', 'one', 'two','three','four','five','six','seven','eight','nine']
   let i=0;
   for(; i<numbers.length;){
-    console.log(s, numbers[i]);
+    // console.log(s, numbers[i]);
     // 같은 경우는 반복해서 수정 해준다. 더이상 같은 영어숫자가 없는 경우에 i를 1올린다. 
-    s = s.replace(numbers[i], i)
-    console.log(s);
+   const h = i === 0 ? s.replace() : ++i;
+    // s = s.replace(numbers[i], i)
+    console.log(h);
   }
-  return s
+  return h
 }
 
 const r = solution('123one45twoone');
