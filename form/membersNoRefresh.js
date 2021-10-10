@@ -9,14 +9,14 @@ const nameText = queryString.get('input-text');
 // const inputTextObject = inputTextObjects[0];
 const inputTextObject = document.getElementsByName('input-text')[0]; 
 
-inputTextObject.value = nameText;
+// inputTextObject.value = nameText;
 
 
-const inputHiddens = queryString.getAll('input-hidden');
-const inputHidden = inputHiddens[0];
+// const inputHiddens = queryString.getAll('input-hidden');
+// const inputHidden = inputHiddens[0];
 
-inputTextObject.focus();
-inputTextObject.blur();
+// inputTextObject.focus();
+// inputTextObject.blur();
 
 // 문제 풀기
 
@@ -40,10 +40,15 @@ inputTextObject.blur();
 // };
 
 const membersCreate = function(form) {
-  const inputTextObject = form['input-text'];
-  members.push(inputTextObject.value);
+  const memberNameObject = form['member-name'];
+  const memberAgeObject = form['member-age'];
+  members.push({
+    name: memberNameObject.value,
+    age: memberAgeObject.value
+  });
+  memberNameObject.value = '';
+  memberAgeObject.value = '';
   membersSet();
-  inputTextObject.value = '';
   return membersRead();
   
 };
