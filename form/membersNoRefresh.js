@@ -90,10 +90,19 @@ const membersDelete = function(index) {
 //   return members;
 // };
 const membersUpdate = function(index) {
-  const test = document.getElementsByName('members-name')[index];
-  console.log(test.value);
-  const name = test.value;
-  members[index] = name;
+  const memberNameObject = document.getElementsByName('members-name')[index];
+  const memberAgeObject = document.getElementsByName('members-age')[index];
+  console.log(memberNameObject.value);
+  const name = memberNameObject.value;
+  const age = memberAgeObject.value;
+  // members[index] = {
+  //   name: memberNameObject.value,
+  //   age: memberAgeObject.value
+  // }
+  members[index] = {
+    name: name,
+    age: age
+  };
   membersSet();
   return membersRead();
 };
