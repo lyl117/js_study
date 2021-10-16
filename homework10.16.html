@@ -1,0 +1,96 @@
+<script>
+  // Ajax
+  // 2000년 초반까지 서버와 통신할 경우 페이지 이동이 필요 했는데(form 태그 사용), Ajax를 이용하면 페이지 이동 없이 통신이 가능하다.
+  // = 원래는 한페이지에서 이동할 때 새로운 페이지가 열리도록 했었다. 하지만 지금은 그 자리에서 업데이트 되어 이동없이 열린다.
+  // GET과 POST만 사용 할 수 있던 기존 통신 METHOD에서, OPTION, PATCH, PUT, DELETE 등 다양한 METHOD를 이용해 REST API 통신이 유행됐다.
+  // option = 사전에 통신하는 것(권한 확인 등), update = patch, put, delete = delete
+  // = 이런식으로 사용되며 update는 개발자마다 쓰는게 다르다. 하지만 우리는 patch를 사용할 것.
+
+  // Ajax란 Asynchronous JavaScript and XML의 약자입니다.
+  // = async가 비동기여서, 들어오는 순서대로, 안기다리고 바로 쭉 일처리를 함  
+
+  const xhrObject = new XMLHttpRequest();
+// ajax의 핵심 부분 ! 객체안에서 이루어진다. 
+// new와 함께 클래스가 나오며, 클래스로 뽑아낸다.
+// xml은 옛날에 주로 사용되었지만, 종종 지금도 사용된다.(= html안에 데이터를 담고 있는 것)
+// 첫태그와 끝태그가 있어야한다. (json은 그러지 않아도 되어서 json을 많이 사용한다.)
+// request = 요청하다. respond = 응답하다. 이렇게 많이 사용됨.둘이 많이 사용.
+// new XMLHttpRequest();은 요청을 하는 부분이라 할 수 있다.객체를 생성하는 구간.
+xhrObject.onreadystatechange = function() {
+// 준비된 상태 = 일단은 0, 0 부터 시작함.
+// 숫자가 변할 때마다 실행할 함수를 넣어주는 방식. 
+  if (xhrObject.readyState !== 4) return;
+// 4가되면 통신이 완료된 형태. 4가아니면 함수 끝내지말고 끝내라는 뜻  
+  if (xhrObject.status === 200) {
+    // 통신 완료 후 실행할 부분
+// 404등과 같은 에러가 뜨기도 함.
+    console.log('Done', xhrObject.responseText);
+  } else {
+    // 통신 도중 에러가 발생 할때 실행할 부분
+    const error = {
+      status: xhrObject.status,
+      statusText: xhrObject.statusText,
+      responseText: xhrObject.responseText
+    }
+    console.error(error);
+  }
+};
+// 에러나면 실행할 부분 
+
+xhrObject.open('METHOD', 'http://url');
+// open은 get method로 통신, http://url은 현재 경로를 뜻한다. 이파일을 접근하겠다, 일단 여는 단계라 할 수 있다.
+// Content-Type이 없으면 xhrObject.send로 넘기는 값을 서버에서 못 읽음
+xhrObject.setRequestHeader('Content-Type', 'application/json');
+// Content-Type이 없으면 xhrObject.send로 넘기는 값을 서버에서 못 읽음
+xhrObject.send(JSON.stringify({}));
+// 우리는 json방식으로 통신하겠다 이런뜻.
+
+// <div>
+  // <form method="get" onsubmit="alert(this['template'].value); return false;">
+    // <input type="text" name="template" value="Ajax done" placeholder="Name">
+    // <input type="submit" value="Alert">
+  // </form>
+// </div>
+
+// ⇒ 버튼을 누르면, 파일과 통신하여 불러오고, 문자열로서 돌려준다. 
+// 서버가 되어서 문자로서 돌려준다.
+// 버튼을 누르면 이 html파일을 뜨게 해준다.  
+// 통신을 하며 주고 받는 파일이다. 
+// 문자로 해도 태그로 인식한다. 
+
+//<body>
+  //<div><button onclick="ajaxTest()">Ajax run</button></div>
+  //<div id="tag-div"></div>
+// d="tag-div가 전에 배웠던 부모를 말한다.
+// 위 html부분이 div안에 들어간다. 
+// true는 복사해서 넣는 것이고, 그 자체를 서버에서 가져오는 것. 태그 div안에 넣었다.
+// </body>
+
+const ajaxTest = function() {
+  const xhrObject = new XMLHttpRequest();
+  xhrObject.onreadystatechange = function() {
+    if (xhrObject.readyState !== 4) return;
+    if (xhrObject.status === 200) {
+// 404는 서버에 페이지가 없을 때 뜸.
+// 200은 정상적인 통신상태.
+      console.log('Done', xhrObject.responseText);
+      const tagDiv = document.getElementById('tag-div');
+      tagDiv.innerHTML = xhrObject.responseText;
+    } else {
+      const error = {
+        status: xhrObject.status,
+        statusText: xhrObject.statusText,
+        responseText: xhrObject.responseText
+      }
+      console.error(error);
+    }
+  };
+  xhrObject.open('GET', './basicTemplate.html');
+  xhrObject.setRequestHeader('Content-Type', 'application/json');
+  xhrObject.send();
+};
+
+// pending (= 대기중)
+// cors = 유명한 에러. 통신을 못하거나 권한이 없을 시 뜨는 에러 
+// live server 다운로드 받음.
+</script>
