@@ -1,0 +1,121 @@
+<script>
+//Backend와 통신
+// node.js 설치
+// Backend Server = node.js
+// # BE 서버 실행 방법
+// npm install
+//= 설치 할 때
+// npm start
+// = '실행이 된다'의 의미임.
+// node index.js
+// # 터미널 종료
+// Ctrl + c
+//❕ member 구조를 스키마 또는 모델이라고 한다.
+
+// node.js 들어가는 법 
+// = 위 메뉴얼에 file에 new window에 들어가서 원하는 파일을 클릭한다.
+
+// 서버 폴더 설명 
+// mocks = 가짜 데이터, 임시적으로 쓸 수 있는 데이터, db에 들어가야 진짜 데이터임.
+// 껐다 키면 다시 초기화됨. 화면에 데이터를 기본적으로 보여주려고 가짜 데이터를 만듬.
+// npm (node product manager) 
+// swagger 사이트는 백엔드가 프론트에게 이렇게 했어라고 보여줄 수 있는 사이트.
+
+// read
+// curl -X 'GET' \
+ // 'http://localhost:3100/api/v1/members' \
+ // = 3100번 주소에서 api서버에 버전 1에 members라는 경로로 요청했다.
+ // -H 'accept: application/json'
+ // = 서버에서는 json 형식으로 응답을 한다. 
+
+ // create
+ //curl -X 'POST' \
+ //= post메소드를 사용한다.
+  //'http://localhost:3100/api/v1/members' \
+  // api는  해당 목적만 해주면 끝이다. 다시 실행한것을 보고싶으면 위에 read로 가서 확인하면 됨.
+  //-H 'accept: application/json' \
+  // = json 중요 !!!
+  //-H 'Content-Type: application/json' \
+  //-d '{
+  //"name": "홍길선",
+  //"age": "38"
+// }'
+// = 오브젝트로 만들어낸것.
+
+// update
+//curl -X 'PATCH' \
+// =ajax와서 patch를 지원한다.
+  //'http://localhost:3100/api/v1/members/0' \
+  // = 바꾸고 싶은 인덱스 번호 0을 추가한것을 볼 수 있다. 
+  //-H 'accept: application/json' \
+  //-H 'Content-Type: application/json' \
+  //-d '{
+  //"name": "홍길선",
+  //"age": "38"
+// }'
+
+// delete 
+//curl -X 'DELETE' \
+//'http://localhost:3100/api/v1/members/0' \
+// 지우고 싶은 인덱스 번호 0을 추가함.
+ // -H 'accept: application/json'
+ //= 홍길선으로 수정한애를 지우겠다.
+ // = 다시 확인하기위해 read를 보면 됨.
+
+ // zsh = 제트쉘, 
+
+ // ** 중요 = 오브젝트 형식을 모델이라고 함(모델안에 이름과 나이가 있다).배열은 모델이 아님. 오직 오브젝트만!
+ const router = global.express.Router();
+ // 호출만 한 상태 
+const members = global.mocks.members;
+// = global = window
+
+// create
+router.post('/', function(request, response) {
+  // '/' = 모든 어떤것이 와도 통신하겠다.무조건 허락된 상태.
+  members.push(request.body);
+  // request.body로 회원정보를 넘긴다.
+  console.log('Done members post', members);
+  // 이부분으로 대응을 해주겠다. 라는 뜻.
+  response.status(200).send({
+    result: 'Created'
+  });
+});
+// 이전까지는 대기중. 이게 끝이나야 돌아감.(모든 crud가 그렇다)
+
+router.get('/', function(request, response) {
+  console.log('Done members get', members);
+  response.status(200).send({
+    result: 'Read',
+    members: members
+    // 내가 가지고있는 mock데이터를 넘기겠다. 이뜻.
+    // ** 모르는 파일이 뜨면 끝났다는 뜻.
+  });
+});
+
+router.patch('/:index', function(request, response) {
+  // '/:index' = http://localhost:3100/api/v1/members/0' \<- 이주소를 request.params.index로 받는다.라는 뜻 
+  // 중요 ***!!! index번호는 주소에서 수정, 수정된 내용은 body에서 나온다.
+  // '/:index' = /0 으로 받겠다. 라는 뜻
+  const index = Number(request.params.index);
+  members[index] = request.body;
+  console.log('Done members patch', members);
+  response.status(200).send({
+    result: 'Updated'
+  });
+});
+// 홍길동에서 홍길선으로 바꿈.
+
+router.delete('/:index', function(request, response) {
+  const index = Number(request.params.index);
+  members.splice(index, 1);
+  // 지우기 위해 splice 사용. index에 첫번째 있는 걸 지우겠다. 
+  console.log('Done members delete', members);
+  response.status(200).send({
+    result: 'Deleted'
+  });
+});
+
+module.exports = router;
+
+</script>
