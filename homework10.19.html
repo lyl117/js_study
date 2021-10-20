@@ -83,6 +83,7 @@
   });
   // 이전까지는 대기중. 이게 끝이나야 돌아감.(모든 crud가 그렇다)
   
+  // read
   router.get('/', function(request, response) {
     console.log('Done members get', members);
     response.status(200).send({
@@ -93,6 +94,7 @@
     });
   });
   
+  // update
   router.patch('/:index', function(request, response) {
     // '/:index' = http://localhost:3100/api/v1/members/0' \<- 이주소를 request.params.index로 받는다.라는 뜻 
     // 중요 ***!!! index번호는 주소에서 수정, 수정된 내용은 body에서 나온다.
@@ -106,6 +108,7 @@
   });
   // 홍길동에서 홍길선으로 바꿈.
   
+  // delete
   router.delete('/:index', function(request, response) {
     const index = Number(request.params.index);
     members.splice(index, 1);
