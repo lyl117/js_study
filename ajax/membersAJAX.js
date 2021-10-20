@@ -167,22 +167,32 @@ const membersDelete = function(index) {
 //   return members;
 // };
 const membersUpdate = function(index) {
-  const memberNameObject = document.getElementsByName('members-name')[index];
-  const memberAgeObject = document.getElementsByName('members-age')[index];
-  console.log(memberNameObject.value);
-  const name = memberNameObject.value;
-  const age = memberAgeObject.value;
-  // members[index] = {
-  //   name: memberNameObject.value,
-  //   age: memberAgeObject.value
-  // }
-  members[index] = {
+  const url = 'http://localhost:3100/api/v1/members/' + index;
+  const name = document.getElementsByName('members-name')[index].value;
+  const age = document.getElementsByName('members-age')[index].value;
+  const member = {
     name: name,
     age: age
   };
-  membersSet();
-  return membersRead();
+  const xhrObject = new XMLHttpRequest();
+  xhrObject.onreadystatechange = function () {
+    if (xhrObject.readyState !== 4) return;
+    if (xhrObject.status === 200) {
+      membersRead();
+    } else {
+      const error = {
+        status: xhrObject.status,
+        statusText: xhrObject.statusText,
+        responseText: xhrObject.responseText
+      }
+      console.error(error);
+    }
+  };
+  xhrObject.open('PATCH', url);
+  xhrObject.setRequestHeader('Content-Type', 'application/json');
+  xhrObject.send(JSON.stringify(member));
 };
+
 
 
 const membersSet = function() {
