@@ -1,0 +1,126 @@
+<script>
+
+  const ajax = function(method, url, data, callback) {
+    const xhrObject = new XMLHttpRequest();
+    xhrObject.onreadystatechange = function() {
+      //onreadystatechange 함수 사용.
+      if (xhrObject.readyState !== 4) return;
+      // 4가 되면 정상 작동
+      if (xhrObject.status === 200) {
+        // 200으로 정상통신
+        callback(xhrObject);
+        // xhrObject의 오브젝트를 실행하게끔한다.
+      } else {
+        const error = {
+          // 아니면 에러 발생
+          status: xhrObject.status,
+          statusText: xhrObject.statusText,
+          responseText: xhrObject.responseText
+        }
+        console.error(error);
+      }
+    };
+  
+    xhrObject.open(method, url);
+    xhrObject.setRequestHeader('Content-Type', 'application/json');
+    xhrObject.send(data);
+  };
+  // 공통구간은 const xhrObject부터 };까지.
+  // create부터 delete까지, 공통부분이 필요할 때 ajax에 와서 거친 후 콜백으로 들어가는 것이다.
+  
+  // create
+  const membersCreate = function(form) {
+    // form태그를 가리킨다.
+    const memberNameObject = form['member-name'];
+    const memberAgeObject = form['member-age'];
+    // 각각 이름 태그와 나이태그를 가리킨다.
+    const member = {
+      name: memberNameObject.value,
+      age: memberAgeObject.value
+    };
+    // 이름과 나이에 value값을 넣는다.
+    const successFunction = function() {
+      memberNameObject.value = '';
+      memberAgeObject.value = '';
+      membersRead();
+      // 싹 다 지웠다가 다시 수정한 부분까지 합해서 다시 보여준다.
+    }
+    ajax('POST', 'http://localhost:3100/api/v1/members', JSON.stringify(member), successFunction);
+  // 메소드는 post, url은 위에 써있다시피, 데이터는 JSON.stringify(member), 콜백함수는 successFunction.
+  // 여기서 콜백함수는 내가 필요할 때 사용할 수 있는 함수를 미리 적어놓는 구간이다. 
+  // scuccessFunction이 콜백함수인이유는, 함수로 들어가서 membersRead로 새롭게 추가된 내용까지 보여줘야 하기 때문이다.
+  };
+  
+  // read
+  const membersRead = function() {
+    const successFunction = function(xhrObject) {
+      const membersLogical = JSON.parse(xhrObject.responseText);
+      members = membersLogical.members;
+      const tagDivParent = document.getElementById('tag-div-parent');
+      // 부모 태그에 접근한다.
+      tagDivParent.innerHTML = '';
+      // 다 지우기.
+      const tagDivChild = document.getElementById('tag-div-child');
+      // 자식 태그에 접근한다.
+      for (let index in members) {
+        const newDivChild = tagDivChild.cloneNode(true);
+        // 인풋 태그를 복사해서 자식태그에 넣는다.
+        tagDivParent.appendChild(newDivChild);
+        const membersNameObject = document.getElementsByName('members-name')[index];
+        const membersAgeObject = document.getElementsByName('members-age')[index];
+        const membersUpdateObject = document.getElementsByName('members-update')[index];
+        const membersDeleteObject = document.getElementsByName('members-delete')[index];
+        // 하나 하나씩 선택한다.
+        membersNameObject.value = members[index].name;
+        membersAgeObject.value = members[index].age;
+        membersUpdateObject.index = index;
+        membersDeleteObject.index = index;
+        // 하나씩 값을 넣는다.
+      }
+      console.log('Readed', members);
+    };
+    ajax('GET', 'http://localhost:3100/api/v1/members', undefined, successFunction);
+  // 메소드는 get, url은 위에 보이시다시피,데이터는 없기 때문에 undefined, 콜백함수는 successFunction.
+  };
+  
+  
+  // delete
+  const membersDelete = function(index) {
+    const url = 'http://localhost:3100/api/v1/members/' + index;
+    // 인덱스 번호를 포함한다는 것 중요 **
+    ajax('DELETE', url, undefined, membersRead);
+  };
+  
+  
+  // const membersUpdate = function(index, member) {
+  //   members[index] = member;
+  //   membersSet();
+  //   // window.location.reload();
+  //   return members;
+  // };
+  
+  //update
+  const membersUpdate = function(index) {
+    const url = 'http://localhost:3100/api/v1/members/' + index;
+    // 인덱스 번호 추가해야함.
+    const name = document.getElementsByName('members-name')[index].value;
+    const age = document.getElementsByName('members-age')[index].value;
+    const member = {
+      name: name,
+      age: age
+    };
+    ajax('PATCH', url, JSON.stringify(member), membersRead);
+  // 메소드는 patch, url은 url, 데이터는 JSON.stringify(member), 콜백함수는 membersRead.
+  };
+  
+  
+  
+  const membersSet = function() {
+    const membersSet = JSON.stringify(members);
+    sessionStorage.setItem('members', membersSet);
+  };
+  
+  membersRead();
+  
+  
+  </script>
