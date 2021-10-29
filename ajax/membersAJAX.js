@@ -135,7 +135,8 @@ const membersRead = function() {
 
 const membersDelete = function(index) {
   const url = 'http://localhost:3100/api/v1/members/' + index;
-  ajax('DELETE', url, undefined, membersRead);
+  // ajax('DELETE', url, undefined, membersRead);
+  axios.delete(url).then(membersRead);
 };
 
 
