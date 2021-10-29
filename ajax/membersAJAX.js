@@ -108,7 +108,28 @@ const membersCreate = function(form) {
 
 
 const membersRead = function() {
-  const successFunction = function(response) {
+  // const successFunction = function(response) {
+  //   const membersLogical = response.data;
+  //   members = membersLogical.members;
+  //   const tagDivParent = document.getElementById('tag-div-parent');
+  //   tagDivParent.innerHTML = '';
+  //   const tagDivChild = document.getElementById('tag-div-child');
+  //   for (let index in members) {
+  //     const newDivChild = tagDivChild.cloneNode(true);
+  //     tagDivParent.appendChild(newDivChild);
+  //     const membersNameObject = document.getElementsByName('members-name')[index];
+  //     const membersAgeObject = document.getElementsByName('members-age')[index];
+  //     const membersUpdateObject = document.getElementsByName('members-update')[index];
+  //     const membersDeleteObject = document.getElementsByName('members-delete')[index];
+  //     membersNameObject.value = members[index].name;
+  //     membersAgeObject.value = members[index].age;
+  //     membersUpdateObject.index = index;
+  //     membersDeleteObject.index = index;
+  //   }
+  //   console.log('Readed', members);
+  // };
+  // ajax('GET', 'http://localhost:3100/api/v1/members', undefined, successFunction);
+  axios.get('http://localhost:3100/api/v1/members').then(function(response) {
     const membersLogical = response.data;
     members = membersLogical.members;
     const tagDivParent = document.getElementById('tag-div-parent');
@@ -127,9 +148,7 @@ const membersRead = function() {
       membersDeleteObject.index = index;
     }
     console.log('Readed', members);
-  };
-  // ajax('GET', 'http://localhost:3100/api/v1/members', undefined, successFunction);
-  axios.get('http://localhost:3100/api/v1/members').then(successFunction);
+  });
 };
 
 
