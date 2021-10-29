@@ -154,7 +154,8 @@ const membersUpdate = function(index) {
     name: name,
     age: age
   };
-  ajax('PATCH', url, JSON.stringify(member), membersRead);
+  // ajax('PATCH', url, JSON.stringify(member), membersRead);
+  axios.patch(url, member).then(membersRead);
 };
 
 
